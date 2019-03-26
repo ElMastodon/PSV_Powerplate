@@ -8,7 +8,7 @@ import smbus
 import time
 
 
-@staticmethod
+
 def getLux():
 
     # Get I2C bus
