@@ -7,7 +7,9 @@
 import smbus
 import time
 
-while (True):
+
+@staticmethod
+def getLux():
 
     # Get I2C bus
     bus = smbus.SMBus(1)
@@ -35,15 +37,14 @@ while (True):
     ch0 = data[1] * 256 + data[0]
     ch1 = data1[1] * 256 + data1[0]
 
+    # Output data to screen
     print("------" * 6)
     if ch0 <200:
         print("good lux")
     else:
         print("bad lux")
-
-    # Output data to screen
-
     print ("Full Spectrum(IR + Visible) :%d lux" %ch0)
     print ("Infrared Value :%d lux" %ch1)
     print ("Visible Value :%d lux" %(ch0 - ch1))
-    time.sleep(3)
+
+    return ch0
