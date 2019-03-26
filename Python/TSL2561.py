@@ -3,7 +3,7 @@
 # TSL2561
 # This code is designed to work with the TSL2561_I2CS I2C Mini Module available from ControlEverything.com.
 # https://www.controleverything.com/content/Light?sku=TSL2561_I2CS#tabs-0-product_tabset-2
-import time
+
 import smbus
 import time
 
@@ -35,6 +35,11 @@ while (True):
     ch0 = data[1] * 256 + data[0]
     ch1 = data1[1] * 256 + data1[0]
 
+
+    if ch0<200:
+        print("good lux")
+    else:
+        print("bad lux")
     # Output data to screen
     print ("------" * 5)
     print ("Full Spectrum(IR + Visible) :%d lux" %ch0)
