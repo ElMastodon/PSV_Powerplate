@@ -9,8 +9,14 @@ if y == "y":
     GPIO.cleanup
     GPIO.setmode(GPIO.BOARD)
 
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.output(12, GPIO.HIGH)
+    time.sleep(10)
+    GPIO.output(12, GPIO.LOW)
+    GPIO.cleanup
 
-    lux = TSL2561.getLux()
-    print(lux)
+    while True:
+        lux = TSL2561.getLux()
+
 
 
