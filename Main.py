@@ -17,6 +17,7 @@ if y == "y":
 
     while True:
         lux = TSL2561.getLux()
+        time.sleep(1.5)
 
 
 
