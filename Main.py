@@ -18,7 +18,7 @@ while bool == True:
     print ("-----------" * 6)
 
 
-    inputVal = input("Geben Sie eine Option an!")
+    inputVal = int(input("Geben Sie eine Option an!"))
 
     if inputVal == 1:
         Motoren.anhebenOben()
@@ -27,7 +27,7 @@ while bool == True:
     elif inputVal == 3:
         Motoren.vibAnordnung()
     elif inputVal == 4:
-        print("Test")
+        TSL2561.getLux()
     elif inputVal == 5:
         bool = False
 
