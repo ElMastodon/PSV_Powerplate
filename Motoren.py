@@ -13,6 +13,8 @@ def anhebenOben():
     GPIO.output(27, GPIO.LOW)
     GPIO.output(17, GPIO.HIGH)
     time.sleep(1)
+    GPIO.input(27)
+    GPIO.input(17)
     GPIO.cleanup
 
 def anhebenUnten():
