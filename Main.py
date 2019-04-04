@@ -28,5 +28,5 @@ while bool == True:
     elif inputVal == 4:
         print("Test")
     elif inputVal == 5:
-        break
+        bool = False
 
