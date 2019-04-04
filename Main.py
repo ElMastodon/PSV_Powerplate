@@ -25,6 +25,8 @@ while bool == True:
     if bool == False:
         break
 
+    sys(inputVal)
+
     def sys(arg):
         switcher = {
             1: Motoren.anheben1(),
