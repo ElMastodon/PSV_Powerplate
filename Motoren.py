@@ -12,8 +12,8 @@ def anhebenOben():
     GPIO.setup(17, GPIO.OUT)
     GPIO.output(27, GPIO.LOW)
     GPIO.output(17, GPIO.HIGH)
-    GPIO.cleanup
     GPIO.output(17, GPIO.LOW)
+    GPIO.cleanup
 
 def anhebenUnten():
     GPIO.cleanup
