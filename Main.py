@@ -22,18 +22,15 @@ while bool == True:
         setFalse()
 
 
-    if bool == False:
+
+    if inputVal == 1:
+        Motoren.anheben1()
+    elif inputVal == 2:
+        Motoren.vibSortier()
+    elif inputVal == 3:
+        Motoren.vibAnordnung()
+    elif inputVal == 4:
+        print("Test")
+    elif inputVal == 5:
         break
 
-    switch(inputVal)
-
-    def switch(arg):
-            {
-            1: Motoren.anheben1(),
-            2: Motoren.vibSortier(),
-            3: Motoren.vibAnordnung(),
-            4: print("Test")
-            }
-
-    def setFalse():
-        bool = False
