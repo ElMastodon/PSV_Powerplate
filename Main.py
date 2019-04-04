@@ -23,9 +23,6 @@ while bool == True:
         setFalse()
 
 
-
-    pi = pigpio.pi()
-
     input("")
 
     def sys(arg):
