@@ -6,8 +6,8 @@ import time
 # Pin 12 (GPIO17) um Plattform anzuheben
 def init():
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(22, GPIO.OUT)
-    GPIO.setup(10, GPIO.OUT)
+    GPIO.setup(15, GPIO.OUT)
+    GPIO.setup(19, GPIO.OUT)
 
 #Motor 2
 def init2():
@@ -25,11 +25,11 @@ def init3():
 def anhebenOben():
 
     try:
-        GPIO.output(22, GPIO.LOW)
-        GPIO.output(10, GPIO.HIGH)
+        GPIO.output(15, GPIO.LOW)
+        GPIO.output(19, GPIO.HIGH)
 
         time.sleep(10)
-        GPIO.output(10, GPIO.LOW)
+        GPIO.output(19, GPIO.LOW)
     finally:
         print("Fertig!")
         GPIO.cleanup()
