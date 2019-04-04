@@ -21,6 +21,7 @@ while bool == True:
     inputVal = int(input("Geben Sie eine Option an!"))
 
     if inputVal == 1:
+        Motoren.init()
         Motoren.anhebenOben()
     elif inputVal == 2:
         Motoren.vibSortier()

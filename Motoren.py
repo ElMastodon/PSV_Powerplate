@@ -5,13 +5,14 @@ import time
 
 # Pin 12 (GPIO17) um Plattform anzuheben
 
+def init():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(27, GPIO.OUT)
+    GPIO.setup(17, GPIO.OUT)
+
 def anhebenOben():
 
     try:
-        GPIO.cleanup()
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(27, GPIO.OUT)
-        GPIO.setup(17, GPIO.OUT)
         GPIO.output(27, GPIO.LOW)
         GPIO.output(17, GPIO.HIGH)
 
