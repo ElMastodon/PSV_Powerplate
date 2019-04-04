@@ -8,8 +8,9 @@ import time
 def anhebenOben():
     GPIO.cleanup
     GPIO.setmode(GPIO.BOARD)
-
+    GPIO.setup(27, GPIO.OUT)
     GPIO.setup(17, GPIO.OUT)
+    GPIO.output(27, GPIO.LOW)
     GPIO.output(17, GPIO.HIGH)
     time.sleep(1)
     GPIO.cleanup
