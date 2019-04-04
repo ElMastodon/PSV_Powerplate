@@ -18,10 +18,6 @@ while bool == True:
 
     inputVal = input("Geben Sie eine Option an!")
 
-    if inputVal == 5:
-        setFalse()
-
-
 
     if inputVal == 1:
         Motoren.anheben1()
