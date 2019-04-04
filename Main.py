@@ -30,7 +30,7 @@ while bool == True:
             1: Motoren.anheben1(),
             2: Motoren.vibSortier(),
             3: Motoren.vibAnordnung(),
-            4: print(TSL2561.getLux())
+            4: print("Test")
             }
 
     def setFalse():
