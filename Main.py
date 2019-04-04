@@ -20,7 +20,6 @@ while bool == True:
 
     inputVal = input("Geben Sie eine Option an!")
 
-
     if inputVal == 1:
         Motoren.anhebenOben()
     elif inputVal == 2:
