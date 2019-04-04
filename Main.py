@@ -2,7 +2,6 @@ import time
 import TSL2561
 import Motoren
 
-import pigpio
 
 print("Welcome")
 
@@ -23,7 +22,8 @@ while bool == True:
         setFalse()
 
 
-    input("")
+    if bool == False:
+        break
 
     def sys(arg):
         switcher = {
