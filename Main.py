@@ -26,6 +26,7 @@ while bool == True:
     elif inputVal == 2:
         Motoren.vibSortier()
     elif inputVal == 3:
+        Motoren.init2()
         Motoren.vibAnordnung()
     elif inputVal == 4:
         TSL2561.getLux()

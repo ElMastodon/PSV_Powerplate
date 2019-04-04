@@ -48,15 +48,15 @@ def anhebenUnten():
 
 
 def vibSortier():
-    pass
-    GPIO.cleanup
-    GPIO.setmode(GPIO.BOARD)
+    try:
+        GPIO.output(22, GPIO.LOW)
+        GPIO.output(10, GPIO.HIGH)
 
-    GPIO.setup(12, GPIO.OUT)
-    GPIO.output(12, GPIO.HIGH)
-    time.sleep(10)
-    GPIO.output(12, GPIO.LOW)
-    GPIO.cleanup
+        time.sleep(10)
+        GPIO.output(10, GPIO.LOW)
+    finally:
+        print("Fertig!")
+        GPIO.cleanup()
 
 
 def vibAnordnung():
