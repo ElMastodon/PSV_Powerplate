@@ -43,8 +43,8 @@ def getLux():
         print("good lux")
     else:
         print("bad lux")
-    print ("Full Spectrum(IR + Visible) :%d lux" %ch0)
-    print ("Infrared Value :%d lux" %ch1)
-    print ("Visible Value :%d lux" %(ch0 - ch1))
+    #print ("Full Spectrum(IR + Visible) :%d lux" %ch0)
+    #print ("Infrared Value :%d lux" %ch1)
+    #print ("Visible Value :%d lux" %(ch0 - ch1))
 
     return ch0

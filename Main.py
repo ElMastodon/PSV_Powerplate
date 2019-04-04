@@ -1,23 +1,40 @@
 import time
 import TSL2561
-import RPi.GPIO as GPIO
+import Motoren
+
+import pigpio
 
 print("Welcome")
-y = input("Press y to start the procedure!")
 
-if y == "y":
-    GPIO.cleanup
-    GPIO.setmode(GPIO.BOARD)
+bool = True
 
-    GPIO.setup(12, GPIO.OUT)
-    GPIO.output(12, GPIO.HIGH)
-    time.sleep(10)
-    GPIO.output(12, GPIO.LOW)
-    GPIO.cleanup
+while bool == True:
 
-    while True:
-        lux = TSL2561.getLux()
-        time.sleep(1.5)
+    print("Sie können folgende Sachen machen:")
+    print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
+    print("Drücken Sie 2 + Entertaste um die Sortierplattform zu vibrieren")
+    print("Drücken Sie 3 + Entertaste um die Anordnungsplattform zu vibrieren")
+    print("Drücken Sie 4 + Entertaste um die Prüflingsform zu prüfen")
+    print("Drücken Sie 5 + Entertaste umd das Programm zu beenden")
+
+    inputVal = input("Geben Sie eine Option an!")
+
+    if inputVal == 5:
+        setFalse()
 
 
 
+    pi = pigpio.pi()
+
+    input("")
+
+    def sys(arg):
+        switcher = {
+            1: Motoren.anheben1(),
+            2: Motoren.vibSortier(),
+            3: Motoren.vibAnordnung(),
+            4: print(TSL2561.getLux())
+            }
+
+    def setFalse():
+        bool = False
