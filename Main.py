@@ -28,7 +28,7 @@ while bool == True:
     switch(inputVal)
 
     def switch(arg):
-        switcher = {
+            {
             1: Motoren.anheben1(),
             2: Motoren.vibSortier(),
             3: Motoren.vibAnordnung(),
