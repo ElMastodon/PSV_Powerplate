@@ -35,6 +35,7 @@ def anhebenOben():
         GPIO.cleanup()
 
 
+
 def anhebenUnten():
     try:
         GPIO.output(27, GPIO.HIGH)
