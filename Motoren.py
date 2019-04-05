@@ -26,6 +26,7 @@ def anhebenOben():
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
+        GPIO.setup(18, GPIO.OUT)
         GPIO.output(17, GPIO.LOW)
 
         p = GPIO.PWM(18, 2000)
