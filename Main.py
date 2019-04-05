@@ -20,12 +20,10 @@ while bool == True:
     inputVal = int(input("Geben Sie eine Option an!"))
 
     if inputVal == 1:
-        Motoren.init()
         Motoren.anhebenOben()
     elif inputVal == 2:
         Motoren.vibSortier()
     elif inputVal == 3:
-        Motoren.init2()
         Motoren.vibAnordnung()
     elif inputVal == 4:
         TSL2561.getLux()
