@@ -48,7 +48,7 @@ def anhebenUnten(dc,sec):
 
         while (GPIO.input(14)) == 0 and sec > 0:
             print(GPIO.input(14))
-            GPIO.output(27, GPIO.HI1GH)
+            GPIO.output(27, GPIO.HIGH)
             time.sleep(1)
             sec -=1
 
