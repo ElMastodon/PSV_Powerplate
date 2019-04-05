@@ -5,7 +5,7 @@ import time
 
 # Pin 12 (GPIO17) um Plattform anzuheben
 
-def anhebenOben(dc, sec):
+def anhebenUnten(dc,sec):
     try:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
@@ -19,7 +19,7 @@ def anhebenOben(dc, sec):
 
         while (GPIO.input(26)) == 0 and sec > 0:
             print(GPIO.input(26))
-            GPIO.output(27, GPIO.HIGH)
+            GPIO.output(27, GPIO.HI1GH)
             time.sleep(1)
             sec -=1
 
@@ -32,7 +32,7 @@ def anhebenOben(dc, sec):
         GPIO.cleanup()
 
 
-def anhebenUnten(dc, sec):
+def anhebenOben(dc, sec):
     try:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
