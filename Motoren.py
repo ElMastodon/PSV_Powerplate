@@ -30,7 +30,7 @@ def anhebenOben():
         GPIO.output(17, GPIO.LOW)
 
         p = GPIO.PWM(18, 2000)
-        p.start(5)
+        p.start(20)
 
 
         GPIO.output(27, GPIO.HIGH)
