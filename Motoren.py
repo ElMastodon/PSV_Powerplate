@@ -20,6 +20,7 @@ def anhebenOben(dc, sec):
         i = True
         while i == True and sec > 0:
             i = GPIO.input(26)
+            print(i)
             GPIO.output(27, GPIO.HIGH)
             time.sleep(sec)
             sec -=1
