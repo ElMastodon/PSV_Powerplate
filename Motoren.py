@@ -5,60 +5,48 @@ import time
 
 # Pin 12 (GPIO17) um Plattform anzuheben
 
-
-#Motor 2
-def init2():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(22, GPIO.OUT)
-    GPIO.setup(10, GPIO.OUT)
-
-#Motor 3
-def init3():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(9, GPIO.OUT)
-    GPIO.setup(11, GPIO.OUT)
-
-
-
-def anhebenOben():
-
+def anhebenOben(dc, sec):
     try:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
-        GPIO.setup(18, GPIO.OUT)
-
+        GPIO.setup(18, GPIO.OUT)  # PWM
+        GPIO.setup(26, GPIO.IN)  # Endschalter
         GPIO.output(17, GPIO.LOW)
 
         p = GPIO.PWM(18, 2000)
-        p.start(70)
+        p.start(dc)
 
+        i = True
+        while i == True and time.sleep(sec) > 0:
+            i = GPIO.input(26)
+            GPIO.output(27, GPIO.HIGH)
 
-        GPIO.output(27, GPIO.HIGH)
-
-        time.sleep(10)
         p.stop()
         GPIO.output(27, GPIO.LOW)
     finally:
-        print("Fertig!")
+        print("Anordnungsplattform angehoben!")
         GPIO.cleanup()
 
 
-def anhebenUnten():
+def anhebenUnten(dc, sec):
     try:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
+        GPIO.setup(14, GPIO.IN)  # Endschalter
 
         GPIO.output(27, GPIO.LOW)
 
         p = GPIO.PWM(18, 2000)
-        p.start(70)
+        p.start(dc)
 
-        GPIO.output(17, GPIO.HIGH)
+        i = True
+        while i == True and time.sleep(sec) > 0:
+            i = GPIO.input(14)
+            GPIO.output(17, GPIO.HIGH)
 
-        time.sleep(10)
         p.stop()
         GPIO.output(17, GPIO.LOW)
     finally:
@@ -66,25 +54,104 @@ def anhebenUnten():
         GPIO.cleanup()
 
 
-def vibSortier():
+# PWM Übergabe
+
+def schubOeffnen(dc, sec):
     try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(22, GPIO.OUT)
+        GPIO.setup(10, GPIO.OUT)
+        GPIO.setup(13, GPIO.OUT)
+        GPIO.setup(23, GPIO.IN)  # Endschalter Schublade aussen
+
         GPIO.output(22, GPIO.LOW)
-        GPIO.output(10, GPIO.HIGH)
 
-        time.sleep(10)
+        p = GPIO.PWM(10, 2000)
+        p.start(dc)
+
+        i = True
+        while i == True and time.sleep(sec) > 0:
+            i = GPIO.input(23)
+            GPIO.output(10, GPIO.HIGH)
+
+
+        time.sleep(sec)
+        p.stop()
         GPIO.output(10, GPIO.LOW)
     finally:
         print("Fertig!")
         GPIO.cleanup()
 
 
-def vibAnordnung():
-    pass
-    GPIO.cleanup
-    GPIO.setmode(GPIO.BOARD)
+def schubSchliessen(dc, sec):
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(22, GPIO.OUT)
+        GPIO.setup(10, GPIO.OUT)
+        GPIO.setup(13, GPIO.OUT)
+        GPIO.setup(15, GPIO.IN)  # Endschalter Schublade innen
 
-    GPIO.setup(12, GPIO.OUT)
-    GPIO.output(12, GPIO.HIGH)
-    time.sleep(10)
-    GPIO.output(12, GPIO.LOW)
-    GPIO.cleanup
+        GPIO.output(22, GPIO.LOW)
+
+        p = GPIO.PWM(10, 2000)
+        p.start(dc)
+
+        i = True
+        while i == True and time.sleep(sec) > 0:
+            i = GPIO.input(15)
+            GPIO.output(22, GPIO.HIGH)
+
+
+        time.sleep(sec)
+        p.stop()
+        GPIO.output(22, GPIO.LOW)
+
+    finally:
+        print("Fertig!")
+        GPIO.cleanup()
+
+
+def vibSort(dc, sec):
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(9, GPIO.OUT)
+        GPIO.setup(11, GPIO.OUT)
+        GPIO.setup(19, GPIO.OUT)
+
+        GPIO.output(9, GPIO.LOW)
+
+        p = GPIO.PWM(19, 2000)
+        p.start(dc)
+
+        GPIO.output(11, GPIO.HIGH)
+
+        time.sleep(sec)
+        p.stop()
+        GPIO.output(11, GPIO.LOW)
+
+    finally:
+        print("Fertig!")
+        GPIO.cleanup()
+
+
+def vibAnord(dc, sec):
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(5, GPIO.OUT)
+        GPIO.setup(6, GPIO.OUT)
+        GPIO.setup(19, GPIO.OUT)
+
+        GPIO.output(9, GPIO.LOW)
+
+        p = GPIO.PWM(19, 2000)
+        p.start(dc)
+
+        GPIO.output(11, GPIO.HIGH)
+
+        time.sleep(sec)
+        p.stop()
+        GPIO.output(11, GPIO.LOW)
+
+    finally:
+        print("Fertig!")
+        GPIO.cleanup()
