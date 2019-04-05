@@ -45,9 +45,11 @@ def anhebenUnten(dc, sec):
         p.start(dc)
 
         i = True
-        while i == True and time.sleep(sec) > 0:
+        while i == True and sec > 0:
             i = GPIO.input(14)
             GPIO.output(17, GPIO.HIGH)
+            time.sleep(sec)
+            sec -= 1
 
         p.stop()
         GPIO.output(17, GPIO.LOW)
@@ -72,9 +74,11 @@ def schubOeffnen(dc, sec):
         p.start(dc)
 
         i = True
-        while i == True and time.sleep(sec) > 0:
+        while i == True and sec > 0:
             i = GPIO.input(23)
             GPIO.output(10, GPIO.HIGH)
+            time.sleep(sec)
+            sec -= 1
 
         time.sleep(sec)
         p.stop()
@@ -98,9 +102,11 @@ def schubSchliessen(dc, sec):
         p.start(dc)
 
         i = True
-        while i == True and time.sleep(sec) > 0:
+        while i == True and sec > 0:
             i = GPIO.input(15)
             GPIO.output(22, GPIO.HIGH)
+            time.sleep(sec)
+            sec -= 1
 
         time.sleep(sec)
         p.stop()
