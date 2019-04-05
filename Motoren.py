@@ -12,7 +12,7 @@ def anhebenOben(dc, sec):
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
-        GPIO.setup(14, GPIO.IN)  # Endschalter
+        GPIO.setup(26, GPIO.IN)  # Endschalter
 
         GPIO.output(27, GPIO.LOW)
 
@@ -39,7 +39,7 @@ def anhebenUnten(dc,sec):
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)  # PWM
-        GPIO.setup(26, GPIO.IN)  # Endschalter
+        GPIO.setup(14, GPIO.IN)  # Endschalter
         GPIO.output(17, GPIO.LOW)
 
         p = GPIO.PWM(18, 2000)
