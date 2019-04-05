@@ -58,7 +58,6 @@ def anhebenUnten(dc, sec):
         GPIO.cleanup()
 
 
-# PWM Übergabe
 
 def schubOeffnen(dc, sec):
     try:

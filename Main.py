@@ -21,8 +21,11 @@ while bool == True:
     print ("-----------" * 6)
 
     inputVal = int(input("Geben Sie eine Option an!"))
-    dc = int(input("Geben Sie die eine Zahl zwischen 0-101 ein um die Leistung zu bestimmen"))
-    sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
+
+    if inputVal <= 6:
+        dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
+        sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
+
 
     if inputVal == 1:
         Motoren.anhebenOben(dc,sec)
