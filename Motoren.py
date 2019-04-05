@@ -44,7 +44,6 @@ def anhebenOben():
         GPIO.cleanup()
 
 
-
 def anhebenUnten():
     try:
         GPIO.setmode(GPIO.BCM)
