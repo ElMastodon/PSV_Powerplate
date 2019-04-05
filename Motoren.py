@@ -17,8 +17,8 @@ def anhebenUnten(dc,sec):
         p = GPIO.PWM(18, 2000)
         p.start(dc)
 
-        while (GPIO.input(26)) == 0 and sec > 0:
-            print(GPIO.input(26))
+        while (GPIO.input(14)) == 0 and sec > 0:
+            print(GPIO.input(14))
             GPIO.output(27, GPIO.HI1GH)
             time.sleep(1)
             sec -=1
@@ -45,8 +45,8 @@ def anhebenOben(dc, sec):
         p = GPIO.PWM(18, 2000)
         p.start(dc)
 
-        while (GPIO.input(14)) == 0 and sec > 0:
-            print(GPIO.input(14))
+        while (GPIO.input(26)) == 0 and sec > 0:
+            print(GPIO.input(26))
             GPIO.output(17, GPIO.HIGH)
             time.sleep(1)
             sec -= 1
