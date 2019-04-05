@@ -17,12 +17,10 @@ def anhebenOben(dc, sec):
         p = GPIO.PWM(18, 2000)
         p.start(dc)
 
-        i = True
-        while i == True and sec > 0:
-            i = GPIO.input(26)
-            print(i)
+        while (GPIO.input(26)) == 0 and sec > 0:
+            print(GPIO.input(26))
             GPIO.output(27, GPIO.HIGH)
-            time.sleep(sec)
+            time.sleep(1)
             sec -=1
 
         p.stop()
