@@ -5,32 +5,6 @@ import time
 
 # Pin 12 (GPIO17) um Plattform anzuheben
 
-def anhebenUnten(dc,sec):
-    try:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(17, GPIO.OUT)
-        GPIO.setup(27, GPIO.OUT)
-        GPIO.setup(18, GPIO.OUT)  # PWM
-        GPIO.setup(26, GPIO.IN)  # Endschalter
-        GPIO.output(17, GPIO.LOW)
-
-        p = GPIO.PWM(18, 2000)
-        p.start(dc)
-
-        while (GPIO.input(14)) == 0 and sec > 0:
-            print(GPIO.input(14))
-            GPIO.output(27, GPIO.HI1GH)
-            time.sleep(1)
-            sec -=1
-
-        p.stop()
-        GPIO.output(17, GPIO.HIGH)
-        GPIO.output(27, GPIO.HIGH)
-        GPIO.output(18, GPIO.HIGH)
-    finally:
-        print("Anordnungsplattform angehoben!")
-        GPIO.cleanup()
-
 
 def anhebenOben(dc, sec):
     try:
@@ -55,6 +29,34 @@ def anhebenOben(dc, sec):
         GPIO.output(17, GPIO.LOW)
     finally:
         print("Fertig!")
+        GPIO.cleanup()
+
+
+
+def anhebenUnten(dc,sec):
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(17, GPIO.OUT)
+        GPIO.setup(27, GPIO.OUT)
+        GPIO.setup(18, GPIO.OUT)  # PWM
+        GPIO.setup(26, GPIO.IN)  # Endschalter
+        GPIO.output(17, GPIO.LOW)
+
+        p = GPIO.PWM(18, 2000)
+        p.start(dc)
+
+        while (GPIO.input(14)) == 0 and sec > 0:
+            print(GPIO.input(14))
+            GPIO.output(27, GPIO.HI1GH)
+            time.sleep(1)
+            sec -=1
+
+        p.stop()
+        GPIO.output(17, GPIO.HIGH)
+        GPIO.output(27, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
+    finally:
+        print("Anordnungsplattform angehoben!")
         GPIO.cleanup()
 
 
