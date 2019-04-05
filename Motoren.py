@@ -74,7 +74,6 @@ def schubOeffnen(dc, sec):
             i = GPIO.input(23)
             GPIO.output(10, GPIO.HIGH)
 
-
         time.sleep(sec)
         p.stop()
         GPIO.output(10, GPIO.LOW)
@@ -100,7 +99,6 @@ def schubSchliessen(dc, sec):
         while i == True and time.sleep(sec) > 0:
             i = GPIO.input(15)
             GPIO.output(22, GPIO.HIGH)
-
 
         time.sleep(sec)
         p.stop()
