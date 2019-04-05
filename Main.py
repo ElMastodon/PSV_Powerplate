@@ -17,7 +17,6 @@ while bool == True:
     print("Drücken Sie 5 + Entertaste umd das Programm zu beenden")
     print ("-----------" * 6)
 
-
     inputVal = int(input("Geben Sie eine Option an!"))
 
     if inputVal == 1:
