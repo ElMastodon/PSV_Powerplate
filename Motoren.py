@@ -27,10 +27,11 @@ def anhebenOben():
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
+
         GPIO.output(17, GPIO.LOW)
 
-        p = GPIO.PWM(18, 50)
-        p.start(40)
+        p = GPIO.PWM(18, 2000)
+        p.start(70)
 
 
         GPIO.output(27, GPIO.HIGH)
@@ -49,11 +50,18 @@ def anhebenUnten():
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
-        GPIO.output(27, GPIO.HIGH)
-        GPIO.output(17, GPIO.LOW)
+        GPIO.setup(18, GPIO.OUT)
+
+        GPIO.output(27, GPIO.LOW)
+
+        p = GPIO.PWM(18, 2000)
+        p.start(70)
+
+        GPIO.output(17, GPIO.HIGH)
 
         time.sleep(10)
-        GPIO.output(27, GPIO.LOW)
+        p.stop()
+        GPIO.output(17, GPIO.LOW)
     finally:
         print("Fertig!")
         GPIO.cleanup()
