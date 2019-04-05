@@ -24,7 +24,9 @@ def anhebenOben(dc, sec):
             sec -=1
 
         p.stop()
-        GPIO.output(27, GPIO.LOW)
+        GPIO.output(17, GPIO.HIGH)
+        GPIO.output(27, GPIO.HIGH)
+        GPIO.output(18, GPIO.HIGH)
     finally:
         print("Anordnungsplattform angehoben!")
         GPIO.cleanup()
@@ -43,11 +45,10 @@ def anhebenUnten(dc, sec):
         p = GPIO.PWM(18, 2000)
         p.start(dc)
 
-        i = True
-        while i == True and sec > 0:
-            i = GPIO.input(14)
+        while (GPIO.input(14)) == 0 and sec > 0:
+            print(GPIO.input(14))
             GPIO.output(17, GPIO.HIGH)
-            time.sleep(sec)
+            time.sleep(1)
             sec -= 1
 
         p.stop()
@@ -71,11 +72,10 @@ def schubOeffnen(dc, sec):
         p = GPIO.PWM(10, 2000)
         p.start(dc)
 
-        i = True
-        while i == True and sec > 0:
-            i = GPIO.input(23)
+        while (GPIO.input(23)) == 0 and sec > 0:
+            print(GPIO.input(23))
             GPIO.output(10, GPIO.HIGH)
-            time.sleep(sec)
+            time.sleep(1)
             sec -= 1
 
         time.sleep(sec)
@@ -99,11 +99,10 @@ def schubSchliessen(dc, sec):
         p = GPIO.PWM(10, 2000)
         p.start(dc)
 
-        i = True
-        while i == True and sec > 0:
-            i = GPIO.input(15)
-            GPIO.output(22, GPIO.HIGH)
-            time.sleep(sec)
+        while (GPIO.input(15)) == 0 and sec > 0:
+            print(GPIO.input(15))
+            GPIO.output(10, GPIO.HIGH)
+            time.sleep(1)
             sec -= 1
 
         time.sleep(sec)
