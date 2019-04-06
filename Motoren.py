@@ -153,18 +153,20 @@ def vibAnord(dc, sec):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(5, GPIO.OUT)
         GPIO.setup(6, GPIO.OUT)
-        GPIO.setup(19, GPIO.OUT)
+        GPIO.setup(12, GPIO.OUT) #PWM
 
-        GPIO.output(9, GPIO.LOW)
+        GPIO.output(5, GPIO.LOW) #Auf 0 setzen
+        GPIO.output(6, GPIO.LOW)
 
-        p = GPIO.PWM(19, 2000)
+
+        p = GPIO.PWM(12, 2000)
         p.start(dc)
 
-        GPIO.output(11, GPIO.HIGH)
+        GPIO.output(6, GPIO.HIGH)
 
         time.sleep(sec)
         p.stop()
-        GPIO.output(11, GPIO.LOW)
+        GPIO.output(6, GPIO.LOW)
 
     finally:
         print("Fertig!")
