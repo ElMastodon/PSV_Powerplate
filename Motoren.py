@@ -95,6 +95,7 @@ def schubOeffnen(dc, sec):
         GPIO.cleanup()
 
 
+
 def schubSchliessen(dc, sec):
     try:
         GPIO.setmode(GPIO.BCM)
