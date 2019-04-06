@@ -112,7 +112,7 @@ def schubSchliessen(dc, sec):
 
         while (GPIO.input(15)) == 0 and sec > 0:
             print(GPIO.input(15))
-            GPIO.output(10, GPIO.HIGH)
+            GPIO.output(22, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
 
