@@ -88,7 +88,6 @@ def schubOeffnen(dc, sec):
             time.sleep(0.01)
             sec -= 0.01
 
-        time.sleep(sec)
         p.stop()
         GPIO.output(10, GPIO.LOW)
     finally:
@@ -101,12 +100,14 @@ def schubSchliessen(dc, sec):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(22, GPIO.OUT)
         GPIO.setup(10, GPIO.OUT)
-        GPIO.setup(13, GPIO.OUT)
+        GPIO.setup(13, GPIO.OUT) # PWM SIgnal
         GPIO.setup(15, GPIO.IN)  # Endschalter Schublade innen
 
-        GPIO.output(22, GPIO.LOW)
 
-        p = GPIO.PWM(10, 2000)
+        GPIO.output(22, GPIO.LOW)
+        GPIO.output(10, GPIO.LOW)
+
+        p = GPIO.PWM(13, 2000)
         p.start(dc)
 
         while (GPIO.input(15)) == 0 and sec > 0:
@@ -115,7 +116,6 @@ def schubSchliessen(dc, sec):
             time.sleep(0.01)
             sec -= 0.01
 
-        time.sleep(sec)
         p.stop()
         GPIO.output(22, GPIO.LOW)
 
