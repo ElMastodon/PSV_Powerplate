@@ -12,7 +12,7 @@ def anhebenOben(dc, sec):
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
-        GPIO.setup(26, GPIO.IN)  # Endschalter
+        GPIO.setup(26, GPIO.IN)  # Endschalter Oben
 
         GPIO.output(27, GPIO.LOW)
 
@@ -22,8 +22,8 @@ def anhebenOben(dc, sec):
         while (GPIO.input(26)) == 0 and sec > 0:
             print(GPIO.input(26))
             GPIO.output(17, GPIO.HIGH)
-            time.sleep(1)
-            sec -= 1
+            time.sleep(0.01)
+            sec -= 0.01
 
         p.stop()
         GPIO.output(17, GPIO.LOW)
@@ -39,9 +39,11 @@ def anhebenUnten(dc,sec):
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)  # PWM
-        GPIO.setup(14, GPIO.IN)  # Endschalter
+        GPIO.setup(14, GPIO.IN)  # Endschalter Unten
 
-        GPIO.output(17, GPIO.LOW)
+        GPIO.output(17, GPIO.LOW)  #Beides auf Low stellen
+        GPIO.output(27, GPIO.LOW)
+
 
         p = GPIO.PWM(18, 2000)
         p.start(dc)
@@ -49,8 +51,8 @@ def anhebenUnten(dc,sec):
         while (GPIO.input(14)) == 0 and sec > 0:
             print(GPIO.input(14))
             GPIO.output(27, GPIO.HIGH)
-            time.sleep(1)
-            sec -=1
+            time.sleep(0.01)
+            sec -=0.01
 
         p.stop()
         GPIO.output(27, GPIO.LOW)
