@@ -36,8 +36,8 @@ def anhebenOben(dc, sec):
 def anhebenUnten(dc,sec):
     try:
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(17, GPIO.OUT)
-        GPIO.setup(27, GPIO.OUT)
+        GPIO.setup(17, GPIO.OUT)    #Signal zu H-Brücke 1
+        GPIO.setup(27, GPIO.OUT)    #Signal zu H-Brücke 2
         GPIO.setup(18, GPIO.OUT)  # PWM
         GPIO.setup(14, GPIO.IN)  # Endschalter Unten
 
@@ -47,8 +47,10 @@ def anhebenUnten(dc,sec):
 
         p = GPIO.PWM(18, 2000)
         p.start(dc)
+        print("Schritt 1")
 
         while (GPIO.input(14)) == 0 and sec > 0:
+            print("Schritt 2")
             print(GPIO.input(14))
             GPIO.output(27, GPIO.HIGH)
             time.sleep(0.01)
@@ -56,9 +58,10 @@ def anhebenUnten(dc,sec):
 
         p.stop()
         GPIO.output(27, GPIO.LOW)
+        print("Schritt 3")
 
     finally:
-        print("Anordnungsplattform angehoben!")
+        print("Schritt 4")
         GPIO.cleanup()
 
 
