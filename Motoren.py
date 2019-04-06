@@ -50,7 +50,7 @@ def anhebenUnten(dc,sec):
         print("Schritt 1")
 
         print(GPIO.input(14))
-        print("Sek: " + sec)
+        print("Sek: " + str(sec))
 
         while (GPIO.input(14)) == 0 and sec > 0:
             print("Schritt 2")
