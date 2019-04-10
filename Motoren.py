@@ -145,7 +145,7 @@ def vibSort(dc, sec):
         while sec > 0:
             GPIO.output(11, GPIO.HIGH)
             if (GPIO.input(26))== 0:
-                anhebenOben(80,1)
+                anhebenOben(50,1)
             time.sleep(0.05)
             sec -= 0.05
 
