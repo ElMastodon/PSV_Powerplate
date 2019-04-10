@@ -13,7 +13,7 @@ def initAnfangszustand():
     GPIO.cleanup()
 
 
-def konstantesAnheben(thread1, dc, sec):
+def konstantesAnheben(dc, sec):
     try:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
