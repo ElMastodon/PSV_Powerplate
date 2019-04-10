@@ -118,6 +118,7 @@ def schubSchliessen(dc, sec):
             time.sleep(0.01)
             sec -= 0.01
 
+
         p.stop()
         GPIO.output(22, GPIO.LOW)
 
@@ -132,15 +133,23 @@ def vibSort(dc, sec):
         GPIO.setup(9, GPIO.OUT)
         GPIO.setup(11, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
+        GPIO.setup(26, GPIO.IN)  # Endschalter Anheben oben
+
 
         GPIO.output(9, GPIO.LOW)
 
         p = GPIO.PWM(19, 2000)
         p.start(dc)
 
-        GPIO.output(11, GPIO.HIGH)
+        while sec > 0:
+            GPIO.output(11, GPIO.HIGH)
+            if (GPIO.input(26))== 0:
+                anhebenOben(80,1)
+            time.sleep(0.05)
+            sec -= 0.05
 
-        time.sleep(sec)
+
+
         p.stop()
         GPIO.output(11, GPIO.LOW)
 
