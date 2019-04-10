@@ -139,7 +139,6 @@ def vibSort(dc, sec):
         GPIO.setup(9, GPIO.OUT)
         GPIO.setup(11, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
-        GPIO.setup(26, GPIO.IN)  # Endschalter Anheben oben
 
 
         GPIO.output(9, GPIO.LOW)

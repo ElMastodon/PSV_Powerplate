@@ -66,5 +66,8 @@ while bool == True:
         Motoren.vibAnord(90,20)
         time.sleep(23)
         TSL2561.getLux()
+    elif inputVal == 9:
+        Motoren.anhebenOben(85,10)
+        Motoren.vibSort(85,10)
 
 
