@@ -37,7 +37,6 @@ def konstantesAnheben(dcAn,dcVib , sec):
         print(GPIO.input(26))
 
         while sec > 0:
-            print(GPIO.input(26))
             GPIO.output(17, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
@@ -101,7 +100,6 @@ def anhebenUnten(dc,sec):
 
         while (GPIO.input(14)) == 0 and sec > 0:
             print("Schritt 2")
-            print(GPIO.input(14))
             GPIO.output(27, GPIO.HIGH)
             time.sleep(0.01)
             sec -=0.01
@@ -131,7 +129,6 @@ def schubOeffnen(dc, sec):
         p.start(dc)
 
         while (GPIO.input(23)) == 0 and sec > 0:
-            print(GPIO.input(23))
             GPIO.output(10, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
@@ -139,7 +136,6 @@ def schubOeffnen(dc, sec):
         p.stop()
         GPIO.output(10, GPIO.LOW)
     finally:
-        print("Fertig!")
         GPIO.cleanup()
 
 
@@ -159,7 +155,6 @@ def schubSchliessen(dc, sec):
         p.start(dc)
 
         while (GPIO.input(15)) == 0 and sec > 0:
-            print(GPIO.input(15))
             GPIO.output(22, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
@@ -195,7 +190,6 @@ def vibSortThreaded(thread2,dc, sec):
 
     finally:
         print("Fertig!")
-        print("%s: %s" % (thread2, time.ctime(time.time())))
         GPIO.cleanup()
 
 def vibSort(dc, sec):

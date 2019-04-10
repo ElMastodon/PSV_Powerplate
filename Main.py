@@ -4,7 +4,8 @@ import Motoren
 import RPi.GPIO as GPIO
 import threading
 
-print("Welcome")
+print("Willkommen")
+print ("-----------" * 6)
 
 bool = True
 
@@ -32,6 +33,7 @@ while bool == True:
     if (inputVal <= 6) and (inputVal >0) :
         dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
         sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
+        print("-----------" * 6)
 
 
 
@@ -53,15 +55,23 @@ while bool == True:
         bool = False
     elif inputVal == 0:
         Motoren.initAnfangszustand()
-        time.sleep(5)
+        print("INIT ERLEDIGT!")
+        print ("-----------" * 6)
+        time.sleep(3)
         Motoren.konstantesAnheben(90,70,10)
-        time.sleep(10)
+        print("Schublade wird geöffnet")
+        print("-----------" * 6)
+        time.sleep(2)
         Motoren.anhebenUnten(40,5)
         Motoren.schubOeffnen(85,5)
         time.sleep(2)
         Motoren.konstantesAnheben(90,85,10)
+        print("Vibration der Anordnungsplattform wird durchgeführt")
+        print("-----------" * 6)
         time.sleep(2)
         Motoren.vibAnord(90,20)
+        print("Lichtdurchlässigkeit wird getestet")
+        print("-----------" * 6)
         time.sleep(23)
         TSL2561.getLux()
    # elif inputVal == 9:
