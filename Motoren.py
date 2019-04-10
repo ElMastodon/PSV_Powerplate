@@ -163,29 +163,30 @@ def schubSchliessen(dc, sec):
         print("Fertig!")
         GPIO.cleanup()
 
+class vibSortThreaded:
+    def run(thread,dc, sec):
 
-def vibSortThreaded(thread2 ,dc, sec):
-    try:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(9, GPIO.OUT)
-        GPIO.setup(11, GPIO.OUT)
-        GPIO.setup(19, GPIO.OUT)
+        try:
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(9, GPIO.OUT)
+            GPIO.setup(11, GPIO.OUT)
+            GPIO.setup(19, GPIO.OUT)
 
 
-        GPIO.output(9, GPIO.LOW)
+            GPIO.output(9, GPIO.LOW)
 
-        p = GPIO.PWM(19, 2000)
-        p.start(dc)
+            p = GPIO.PWM(19, 2000)
+            p.start(dc)
 
-        GPIO.output(11, GPIO.HIGH)
-        time.sleep(sec)
+            GPIO.output(11, GPIO.HIGH)
+            time.sleep(sec)
 
-        p.stop()
-        GPIO.output(11, GPIO.LOW)
+            p.stop()
+            GPIO.output(11, GPIO.LOW)
 
-    finally:
-        print("Fertig!")
-        GPIO.cleanup()
+        finally:
+            print("Fertig!")
+            GPIO.cleanup()
 
 def vibSort(dc, sec):
     try:
@@ -193,6 +194,7 @@ def vibSort(dc, sec):
         GPIO.setup(9, GPIO.OUT)
         GPIO.setup(11, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
+        GPIO.setup(26, GPIO.IN)
 
 
         GPIO.output(9, GPIO.LOW)
@@ -204,12 +206,12 @@ def vibSort(dc, sec):
         time.sleep(sec)
 
 
-        #while sec > 0:
-        #    GPIO.output(11, GPIO.HIGH)
-         #   if (GPIO.input(26))== 0:
-          #      anhebenOben(85,0.04)
-           # time.sleep(0.05)
-           # sec -= 0.05
+        while sec > 0:
+            GPIO.output(11, GPIO.HIGH)
+            if (GPIO.input(26))== 0:
+                anhebenOben(85,1)
+            time.sleep(0.05)
+            sec -= 0.05
 
 
 
