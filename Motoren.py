@@ -20,11 +20,21 @@ def konstantesAnheben(dc, sec):
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
         GPIO.setup(26, GPIO.IN)  # Endschalter Oben
+        GPIO.setup(9, GPIO.OUT)
+        GPIO.setup(11, GPIO.OUT)
+        GPIO.setup(19, GPIO.OUT)
 
         GPIO.output(27, GPIO.LOW)
+        GPIO.output(9, GPIO.LOW)
 
-        p = GPIO.PWM(18, 2000)
-        p.start(dc)
+        p1 = GPIO.PWM(19, 2000)
+        p1.start(dc)
+
+        GPIO.output(11, GPIO.HIGH)
+        p2 = GPIO.PWM(18, 2000)
+        p2.start(dc)
+
+        print(GPIO.input(26))
 
         while sec > 0:
             print(GPIO.input(26))
@@ -33,7 +43,8 @@ def konstantesAnheben(dc, sec):
             sec -= 0.01
 
         GPIO.output(17, GPIO.LOW)
-
+        p1.stop
+        p2.stop
 
 
     finally:
