@@ -49,8 +49,6 @@ def konstantesAnheben(dcAn,dcVib , sec):
 
     finally:
         GPIO.cleanup()
-        print("%s: %s" % (thread1, time.ctime(time.time())))
-        print("Fertig!")
 
 def anhebenOben(dc, sec):
     try:
