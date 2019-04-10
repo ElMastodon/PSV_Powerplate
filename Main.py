@@ -10,6 +10,8 @@ bool = True
 while bool == True:
 
     while True:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(26, GPIO.IN)
         print(GPIO.input(26))
 
     print("Sie können folgende Sachen machen:")
