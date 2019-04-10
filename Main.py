@@ -2,6 +2,7 @@ import time
 import TSL2561
 import Motoren
 import RPi.GPIO as GPIO
+import _thread
 
 print("Welcome")
 
@@ -67,7 +68,10 @@ while bool == True:
         time.sleep(23)
         TSL2561.getLux()
     elif inputVal == 9:
-        Motoren.anhebenOben(85,10)
-        Motoren.vibSort(85,10)
+        try:
+            _thread.start_new_thread(Motoren.konstantesAnheben("AnhebeThread-1",85,10))
+            _thread.start_new_thread(Motoren.vibSortThreaded("SortThread-2",85,10))
+        except:
+            print("Threading Failed")
 
 

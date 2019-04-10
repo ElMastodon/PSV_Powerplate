@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import pigpio
 import time
+import _thread
 
 
 # Pin 12 (GPIO17) um Plattform anzuheben
@@ -10,6 +11,34 @@ def initAnfangszustand():
     anhebenUnten(30,5)
     schubSchliessen(85,5)
     GPIO.cleanup()
+
+
+def konstantesAnheben(thread1, dc, sec):
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(17, GPIO.OUT)
+        GPIO.setup(27, GPIO.OUT)
+        GPIO.setup(18, GPIO.OUT)
+        GPIO.setup(26, GPIO.IN)  # Endschalter Oben
+
+        GPIO.output(27, GPIO.LOW)
+
+        p = GPIO.PWM(18, 2000)
+        p.start(dc)
+
+        while sec > 0:
+            print(GPIO.input(26))
+            GPIO.output(17, GPIO.HIGH)
+            time.sleep(0.01)
+            sec -= 0.01
+
+        GPIO.output(17, GPIO.LOW)
+
+
+
+    finally:
+        GPIO.cleanup()
+        print("Fertig!")
 
 def anhebenOben(dc, sec):
     try:
@@ -30,10 +59,12 @@ def anhebenOben(dc, sec):
             time.sleep(0.01)
             sec -= 0.01
 
+        GPIO.output(17, GPIO.LOW)
 
 
 
     finally:
+        GPIO.cleanup()
         print("Fertig!")
 
 
@@ -132,6 +163,29 @@ def schubSchliessen(dc, sec):
         print("Fertig!")
         GPIO.cleanup()
 
+
+def vibSortThreaded(thread2 ,dc, sec):
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(9, GPIO.OUT)
+        GPIO.setup(11, GPIO.OUT)
+        GPIO.setup(19, GPIO.OUT)
+
+
+        GPIO.output(9, GPIO.LOW)
+
+        p = GPIO.PWM(19, 2000)
+        p.start(dc)
+
+        GPIO.output(11, GPIO.HIGH)
+        time.sleep(sec)
+
+        p.stop()
+        GPIO.output(11, GPIO.LOW)
+
+    finally:
+        print("Fertig!")
+        GPIO.cleanup()
 
 def vibSort(dc, sec):
     try:
