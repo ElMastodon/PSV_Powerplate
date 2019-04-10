@@ -10,7 +10,7 @@ bool = True
 while bool == True:
 
     while True:
-        rint(GPIO.input(26))
+        print(GPIO.input(26))
 
     print("Sie können folgende Sachen machen:")
     print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
