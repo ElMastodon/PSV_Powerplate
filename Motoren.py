@@ -9,6 +9,7 @@ import time
 def initAnfangszustand():
     anhebenUnten(30,5)
     schubSchliessen(85,5)
+    GPIO.cleanup()
 
 def anhebenOben(dc, sec):
     try:

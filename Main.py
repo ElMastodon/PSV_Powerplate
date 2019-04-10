@@ -54,7 +54,7 @@ while bool == True:
         time.sleep(5)
         Motoren.anhebenOben(85,5)
         time.sleep(5)
-        Motoren.vibSort(60,10)
+        Motoren.vibSort(70,10)
         time.sleep(10)
         Motoren.anhebenUnten(40,5)
         Motoren.schubOeffnen(85,5)
