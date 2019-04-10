@@ -43,7 +43,7 @@ while bool == True:
     elif inputVal == 4:
         Motoren.schubSchliessen(dc,sec)
     elif inputVal == 5:
-        Motoren.vibSort(dc,sec)
+        Motoren.vibSortThreaded("Thread",dc,sec)
     elif inputVal == 6:
         Motoren.vibAnord(dc,sec)
     elif inputVal == 7:
