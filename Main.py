@@ -36,7 +36,7 @@ while bool == True:
 
 
     if inputVal == 1:
-        Motoren.konstantesAnheben(dc,sec)
+        Motoren.anhebenOben(dc,sec)
     elif inputVal == 2:
         Motoren.anhebenUnten(dc,sec)
     elif inputVal == 3:
