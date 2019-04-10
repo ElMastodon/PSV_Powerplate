@@ -59,6 +59,7 @@ def anhebenUnten(dc,sec):
             time.sleep(0.01)
             sec -=0.01
 
+        time.sleep(1)
         p.stop()
         GPIO.output(27, GPIO.LOW)
         print("Schritt 3")
