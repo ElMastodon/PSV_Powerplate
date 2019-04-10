@@ -31,7 +31,7 @@ def anhebenOben(dc, sec):
             sec -= 0.01
 
 
-        p.stop()
+
 
     finally:
         print("Fertig!")
