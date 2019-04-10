@@ -147,12 +147,16 @@ def vibSort(dc, sec):
         p = GPIO.PWM(19, 2000)
         p.start(dc)
 
-        while sec > 0:
-            GPIO.output(11, GPIO.HIGH)
-            if (GPIO.input(26))== 0:
-                anhebenOben(85,0.04)
-            time.sleep(0.05)
-            sec -= 0.05
+        GPIO.output(11, GPIO.HIGH)
+        time.sleep(sec)
+
+
+        #while sec > 0:
+        #    GPIO.output(11, GPIO.HIGH)
+         #   if (GPIO.input(26))== 0:
+          #      anhebenOben(85,0.04)
+           # time.sleep(0.05)
+           # sec -= 0.05
 
 
 
