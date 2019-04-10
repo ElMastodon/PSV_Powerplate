@@ -9,10 +9,10 @@ bool = True
 
 while bool == True:
 
-    while True:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(14, GPIO.IN)
-        print(GPIO.input(14))
+    #while True:
+    #    GPIO.setmode(GPIO.BCM)
+    #    GPIO.setup(14, GPIO.IN)
+    #    print(GPIO.input(14))
 
     print("Sie können folgende Sachen machen:")
     print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
