@@ -8,8 +8,8 @@ import _thread
 
 
 def initAnfangszustand():
-    anhebenUnten(30,5)
-    schubSchliessen(85,5)
+    anhebenUnten(30,1)
+    schubSchliessen(90,4)
     GPIO.cleanup()
 
 
@@ -100,8 +100,8 @@ def anhebenUnten(dc,sec):
 
         while (GPIO.input(14)) == 0 and sec > 0:
             GPIO.output(27, GPIO.HIGH)
-            time.sleep(0.01)
-            sec -=0.01
+            time.sleep(0.04)
+            sec -=0.04
 
 
         p.stop()
