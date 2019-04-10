@@ -13,7 +13,7 @@ def initAnfangszustand():
     GPIO.cleanup()
 
 
-def konstantesAnheben(dc, sec):
+def konstantesAnheben(dcAn,dcVib , sec):
     try:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
@@ -28,11 +28,11 @@ def konstantesAnheben(dc, sec):
         GPIO.output(9, GPIO.LOW)
 
         p1 = GPIO.PWM(19, 2000)
-        p1.start(dc)
+        p1.start(dcVib)
 
         GPIO.output(11, GPIO.HIGH)
         p2 = GPIO.PWM(18, 2000)
-        p2.start(dc)
+        p2.start(dcAn)
 
         print(GPIO.input(26))
 
