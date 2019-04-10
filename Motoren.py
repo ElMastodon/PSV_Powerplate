@@ -93,13 +93,12 @@ def anhebenUnten(dc,sec):
 
         p = GPIO.PWM(18, 2000)
         p.start(dc)
-        print("Schritt 1")
+
 
         print(GPIO.input(14))
-        print("Sek: " + str(sec))
+
 
         while (GPIO.input(14)) == 0 and sec > 0:
-            print("Schritt 2")
             GPIO.output(27, GPIO.HIGH)
             time.sleep(0.01)
             sec -=0.01
@@ -107,10 +106,8 @@ def anhebenUnten(dc,sec):
 
         p.stop()
         GPIO.output(27, GPIO.LOW)
-        print("Schritt 3")
 
     finally:
-        print("Schritt 4")
         GPIO.cleanup()
 
 
@@ -164,7 +161,6 @@ def schubSchliessen(dc, sec):
         GPIO.output(22, GPIO.LOW)
 
     finally:
-        print("Fertig!")
         GPIO.cleanup()
 
 
@@ -189,7 +185,6 @@ def vibSortThreaded(thread2,dc, sec):
         GPIO.output(11, GPIO.LOW)
 
     finally:
-        print("Fertig!")
         GPIO.cleanup()
 
 def vibSort(dc, sec):
@@ -223,7 +218,6 @@ def vibSort(dc, sec):
         GPIO.output(11, GPIO.LOW)
 
     finally:
-        print("Fertig!")
         GPIO.cleanup()
 
 
@@ -248,5 +242,4 @@ def vibAnord(dc, sec):
         GPIO.output(6, GPIO.LOW)
 
     finally:
-        print("Fertig!")
         GPIO.cleanup()

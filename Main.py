@@ -72,7 +72,7 @@ while bool == True:
         Motoren.vibAnord(90,20)
         print("Lichtdurchlässigkeit wird getestet")
         print("-----------" * 6)
-        time.sleep(23)
+        time.sleep(2)
         TSL2561.getLux()
    # elif inputVal == 9:
 
