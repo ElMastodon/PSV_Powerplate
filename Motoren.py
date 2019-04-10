@@ -30,8 +30,6 @@ def anhebenOben(dc, sec):
             sec -= 0.01
 
         time.sleep(1)
-        if (GPIO.INPUT(26)) == 1:
-            anhebenOben(80,2)
         p.stop()
         GPIO.output(17, GPIO.LOW)
     finally:
