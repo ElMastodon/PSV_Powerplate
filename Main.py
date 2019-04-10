@@ -70,6 +70,7 @@ while bool == True:
     elif inputVal == 9:
         try:
             _thread.start_new_thread(Motoren.konstantesAnheben("AnhebeThread-1",85,10))
+            time.sleep(0.5)
             _thread.start_new_thread(Motoren.vibSortThreaded("SortThread-2",85,10))
         except:
             print("Threading Failed")
