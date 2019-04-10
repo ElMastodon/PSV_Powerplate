@@ -135,7 +135,6 @@ def schubSchliessen(dc, sec):
 
 def vibSort(dc, sec):
     try:
-        GPIO.cleanup()
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(9, GPIO.OUT)
         GPIO.setup(11, GPIO.OUT)
@@ -151,7 +150,7 @@ def vibSort(dc, sec):
         while sec > 0:
             GPIO.output(11, GPIO.HIGH)
             if (GPIO.input(26))== 0:
-                anhebenOben(80,0.05)
+                anhebenOben(85,0.04)
             time.sleep(0.05)
             sec -= 0.05
 
