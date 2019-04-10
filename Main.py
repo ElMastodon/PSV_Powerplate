@@ -69,9 +69,9 @@ while bool == True:
         TSL2561.getLux()
     elif inputVal == 9:
         try:
-            _thread.start_new_thread(Motoren.konstantesAnheben("AnhebeThread-1",85,10))
+            _thread.start_new_thread(Motoren.konstantesAnheben("AnhebeThread-1",85,2))
             time.sleep(0.5)
-            _thread.start_new_thread(Motoren.vibSortThreaded("SortThread-2",85,10))
+            _thread.start_new_thread(Motoren.vibSortThreaded("SortThread-2",85,2))
         except:
             print("Threading Failed")
         while 1:
