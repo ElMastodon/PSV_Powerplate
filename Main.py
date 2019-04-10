@@ -74,5 +74,7 @@ while bool == True:
             _thread.start_new_thread(Motoren.vibSortThreaded("SortThread-2",85,10))
         except:
             print("Threading Failed")
+        while 1:
+            pass
 
 
