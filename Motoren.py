@@ -38,6 +38,7 @@ def konstantesAnheben(thread1, dc, sec):
 
     finally:
         GPIO.cleanup()
+        print("%s: %s" % (thread1, time.ctime(time.time())))
         print("Fertig!")
 
 def anhebenOben(dc, sec):
@@ -162,30 +163,31 @@ def schubSchliessen(dc, sec):
         print("Fertig!")
         GPIO.cleanup()
 
-class vibSortThreaded:
-    def run(thread,dc, sec):
 
-        try:
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(9, GPIO.OUT)
-            GPIO.setup(11, GPIO.OUT)
-            GPIO.setup(19, GPIO.OUT)
+def vibSortThreaded(thread2,dc, sec):
+
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(9, GPIO.OUT)
+        GPIO.setup(11, GPIO.OUT)
+        GPIO.setup(19, GPIO.OUT)
 
 
-            GPIO.output(9, GPIO.LOW)
+        GPIO.output(9, GPIO.LOW)
 
-            p = GPIO.PWM(19, 2000)
-            p.start(dc)
+        p = GPIO.PWM(19, 2000)
+        p.start(dc)
 
-            GPIO.output(11, GPIO.HIGH)
-            time.sleep(sec)
+        GPIO.output(11, GPIO.HIGH)
+        time.sleep(sec)
 
-            p.stop()
-            GPIO.output(11, GPIO.LOW)
+        p.stop()
+        GPIO.output(11, GPIO.LOW)
 
-        finally:
-            print("Fertig!")
-            GPIO.cleanup()
+    finally:
+        print("Fertig!")
+        print("%s: %s" % (thread2, time.ctime(time.time())))
+        GPIO.cleanup()
 
 def vibSort(dc, sec):
     try:
