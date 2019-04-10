@@ -15,6 +15,7 @@ while bool == True:
     #    print(GPIO.input(14))
 
     print("Sie können folgende Sachen machen:")
+    print("Drücken Sie 0 + Entertaste um den ganzen Prozess durchzuführen!")
     print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
     print("Drücken Sie 2 + Entertaste um die Sortierplattform runterzulassen")
     print("Drücken Sie 3 + Entertaste um die Schublade zu öffnen")
@@ -27,7 +28,7 @@ while bool == True:
 
     inputVal = int(input("Geben Sie eine Option an!"))
 
-    if inputVal <= 6:
+    if (inputVal <= 6) and (inputVal >0) :
         dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
         sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
 
@@ -48,5 +49,22 @@ while bool == True:
         TSL2561.getLux()
     elif inputVal == 8:
         bool = False
+    elif inputVal == 0:
+        Motoren.initAnfangszustand()
+        time.sleep(5)
+        Motoren.anhebenOben(85,5)
+        time.sleep(5)
+        Motoren.vibSort(60,10)
+        time.sleep(10)
+        Motoren.anhebenUnten(40,5)
+        Motoren.schubOeffnen(85,5)
+        time.sleep(2)
+        Motoren.anhebenOben(85,5)
+        time.sleep(5)
+        Motoren.vibSort(90,10)
+        time.sleep(2)
+        Motoren.vibAnord(90,20)
+        time.sleep(23)
+        TSL2561.getLux()
 
 

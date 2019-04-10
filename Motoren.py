@@ -6,6 +6,10 @@ import time
 # Pin 12 (GPIO17) um Plattform anzuheben
 
 
+def initAnfangszustand():
+    anhebenUnten(30,5)
+    schubSchliessen(85,5)
+
 def anhebenOben(dc, sec):
     try:
         GPIO.setmode(GPIO.BCM)
@@ -147,7 +151,7 @@ def vibSort(dc, sec):
         while sec > 0:
             GPIO.output(11, GPIO.HIGH)
             if (GPIO.input(26))== 0:
-                anhebenOben(50,1)
+                anhebenOben(70,1)
             time.sleep(0.05)
             sec -= 0.05
 
