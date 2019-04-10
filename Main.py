@@ -34,6 +34,7 @@ while bool == True:
         sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
 
 
+
     if inputVal == 1:
         Motoren.konstantesAnheben(dc,sec)
     elif inputVal == 2:
