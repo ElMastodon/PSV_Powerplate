@@ -35,7 +35,7 @@ def anhebenOben(dc, sec):
 
     finally:
         print("Fertig!")
-        GPIO.cleanup()
+
 
 
 
