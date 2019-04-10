@@ -30,9 +30,9 @@ def anhebenOben(dc, sec):
             time.sleep(0.01)
             sec -= 0.01
 
-        time.sleep(sec)
+
         p.stop()
-        GPIO.output(17, GPIO.LOW)
+
     finally:
         print("Fertig!")
         GPIO.cleanup()
