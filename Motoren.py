@@ -164,7 +164,7 @@ def schubSchliessen(dc, sec):
         GPIO.cleanup()
 
 
-def vibSortThreaded(thread2,dc, sec):
+def vibSortThreaded(dc, sec):
 
     try:
         GPIO.setmode(GPIO.BCM)
