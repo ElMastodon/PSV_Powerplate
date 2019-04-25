@@ -58,7 +58,7 @@ while bool == True:
         print("INIT ERLEDIGT!")
         print ("-----------" * 6)
         time.sleep(3)
-        Motoren.konstantesAnheben(90,70,10)
+        Motoren.konstantesAnheben(90,75,10)
         print("Schublade wird geöffnet")
         print("-----------" * 6)
         time.sleep(2)
@@ -73,6 +73,7 @@ while bool == True:
         print("Lichtdurchlässigkeit wird getestet")
         print("-----------" * 6)
         time.sleep(2)
+        Motoren.anhebenUnten(40, 1)
 
    # elif inputVal == 9:
 
