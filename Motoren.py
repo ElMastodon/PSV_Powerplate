@@ -9,7 +9,7 @@ import _thread
 
 def initAnfangszustand():
     anhebenUnten(40,1)
-    schubSchliessen(100,4)
+    schubSchliessen(85,4)
     GPIO.cleanup()
 
 
