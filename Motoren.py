@@ -19,7 +19,7 @@ def konstantesAnheben(dcAn,dcVib , sec):
         GPIO.setup(17, GPIO.OUT)
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
-                                                GPIO.setup(26, GPIO.IN)  # Endschalter Oben
+        GPIO.setup(26, GPIO.IN)  # Endschalter Oben
         GPIO.setup(9, GPIO.OUT)
         GPIO.setup(11, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
