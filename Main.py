@@ -54,7 +54,7 @@ while bool == True:
     elif inputVal == 8:
         bool = False
     elif inputVal ==9:
-        Motoren.konstantesAnheben(70,70,10)
+        Motoren.konstantesAnheben(85,85,10)
     elif inputVal == 0:
         Motoren.initAnfangszustand()
         print("INIT ERLEDIGT!")
