@@ -53,6 +53,8 @@ while bool == True:
         TSL2561.getLux()
     elif inputVal == 8:
         bool = False
+    elif inputVal ==9:
+        konstantesAnheben(70,10)
     elif inputVal == 0:
         Motoren.initAnfangszustand()
         print("INIT ERLEDIGT!")
@@ -63,7 +65,7 @@ while bool == True:
         print("-----------" * 6)
         time.sleep(2)
         Motoren.anhebenUnten(40,5)
-        Motoren.schubOeffnen(85,5)
+        Motoren.schubOeffnen(90,5)
         time.sleep(2)
         Motoren.konstantesAnheben(90,85,10)
         print("Vibration der Anordnungsplattform wird durchgeführt")
