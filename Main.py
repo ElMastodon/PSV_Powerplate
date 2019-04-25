@@ -63,16 +63,16 @@ while bool == True:
         print("-----------" * 6)
         time.sleep(2)
         Motoren.anhebenUnten(40,5)
-        Motoren.schubOeffnen(85,5)
+        Motoren.schubOeffnen(95,5)
         time.sleep(2)
         Motoren.konstantesAnheben(90,85,10)
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
         time.sleep(2)
-        Motoren.vibAnord(90,20)
+        Motoren.vibAnord(100,20)
         print("Lichtdurchlässigkeit wird getestet")
         print("-----------" * 6)
         time.sleep(2)
-        TSL2561.getLux()
+
    # elif inputVal == 9:
 
