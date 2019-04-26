@@ -62,7 +62,7 @@ while bool == True:
             if (GPIO.input(8)) == 1:                #Ganzes System
                 Motoren.ganzesSystemDurchlaufen()
 
-            GPIO.cleanup()
+
         finally:
             GPIO.cleanup()
 
