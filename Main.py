@@ -41,7 +41,7 @@ while bool == True:
 
             GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
-            if (GPIO.input(24)) == 1:
+            if (GPIO.input(24)) == 1:  #Sortieren SortP
                 Motoren.initAnfangszustand()
                 print("INIT ERLEDIGT!")
                 print("-----------" * 6)
@@ -55,12 +55,14 @@ while bool == True:
                 time.sleep(2)
                 Motoren.konstantesAnheben(90, 85, 10)
                 Motoren.anhebenUnten(40,3)
-            if (GPIO.input(25)) == 1:
+            if (GPIO.input(25)) == 1:               #Anordnungsplattform
                 if (GPIO.input(23)) == 0:           #Falls Schublade nicht bereits offen
                     Motoren.schubOeffnen(85,4)      #Öffne Schublade
                 Motoren.vibAnord(90, 30)
-            if (GPIO.input(8)) == 1:
+            if (GPIO.input(8)) == 1:                #Ganzes System
                 Motoren.ganzesSystemDurchlaufen()
+
+            GPIO.cleanup()
         finally:
             GPIO.cleanup()
 
