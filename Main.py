@@ -10,6 +10,7 @@ print ("-----------" * 6)
 bool = True
 
 while bool == True:
+    inputVal = 99
 
     #while True:
     #    GPIO.setmode(GPIO.BCM)
@@ -29,6 +30,39 @@ while bool == True:
     print ("-----------" * 6)
 
     inputVal = int(input("Geben Sie eine Option an!"))
+
+    while inputVal == 99:
+        try:
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(24, GPIO.IN) #Sortieren SortP
+            GPIO.setup(25, GPIO.IN) #Anordnen
+            GPIO.setup(8, GPIO.IN)  #Ganzes System
+            GPIO.setup(7, GPIO.IN)  #Stopp
+
+            GPIO.setup(23, GPIO.IN) #Endschalter Schublade offen
+
+            if (GPIO.input(24)) == 1:
+                Motoren.initAnfangszustand()
+                print("INIT ERLEDIGT!")
+                print("-----------" * 6)
+                time.sleep(3)
+                Motoren.konstantesAnheben(90, 75, 10)
+                print("Schublade wird geöffnet")
+                print("-----------" * 6)
+                time.sleep(2)
+                Motoren.anhebenUnten(40, 5)
+                Motoren.schubOeffnen(90, 5)
+                time.sleep(2)
+                Motoren.konstantesAnheben(90, 85, 10)
+                Motoren.anhebenUnten(40,3)
+            if (GPIO.input(25)) == 1:
+                if (GPIO.input(23)) == 0:           #Falls Schublade nicht bereits offen
+                    Motoren.schubOeffnen(85,4)      #Öffne Schublade
+                Motoren.vibAnord(90, 30)
+            if (GPIO.input(8)) == 1:
+                Motoren.ganzesSystemDurchlaufen()
+        finally:
+            GPIO.cleanup()
 
     if (inputVal <= 6) and (inputVal >0) :
         dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
@@ -56,26 +90,7 @@ while bool == True:
     elif inputVal ==9:
         Motoren.konstantesAnheben(85,85,10)
     elif inputVal == 0:
-        Motoren.initAnfangszustand()
-        print("INIT ERLEDIGT!")
-        print ("-----------" * 6)
-        time.sleep(3)
-        Motoren.konstantesAnheben(90,75,10)
-        print("Schublade wird geöffnet")
-        print("-----------" * 6)
-        time.sleep(2)
-        Motoren.anhebenUnten(40,5)
-        Motoren.schubOeffnen(90,5)
-        time.sleep(2)
-        Motoren.konstantesAnheben(90,85,10)
-        print("Vibration der Anordnungsplattform wird durchgeführt")
-        print("-----------" * 6)
-        time.sleep(2)
-        Motoren.vibAnord(100,20)
-        print("Lichtdurchlässigkeit wird getestet")
-        print("-----------" * 6)
-        time.sleep(2)
-        Motoren.anhebenUnten(40, 1)
+        Motoren.ganzesSystemDurchlaufen()
 
    # elif inputVal == 9:
 

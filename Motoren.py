@@ -5,7 +5,27 @@ import _thread
 
 
 # Pin 12 (GPIO17) um Plattform anzuheben
-
+def ganzesSystemDurchlaufen():
+    initAnfangszustand()
+    print("INIT ERLEDIGT!")
+    print("-----------" * 6)
+    time.sleep(3)
+    konstantesAnheben(90, 75, 10)
+    print("Schublade wird geöffnet")
+    print("-----------" * 6)
+    time.sleep(2)
+    anhebenUnten(40, 5)
+    schubOeffnen(90, 5)
+    time.sleep(2)
+    konstantesAnheben(90, 85, 10)
+    print("Vibration der Anordnungsplattform wird durchgeführt")
+    print("-----------" * 6)
+    time.sleep(2)
+    vibAnord(100, 20)
+    print("Lichtdurchlässigkeit wird getestet")
+    print("-----------" * 6)
+    time.sleep(2)
+    anhebenUnten(40, 1)
 
 def initAnfangszustand():
     anhebenUnten(40,1)
@@ -40,6 +60,8 @@ def konstantesAnheben(dcAn,dcVib , sec):
             GPIO.output(17, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
+            if (GPIO.input(7)) == 1:
+                sec = 0
 
         GPIO.output(17, GPIO.LOW)
         p1.stop
@@ -67,6 +89,8 @@ def anhebenOben(dc, sec):
             GPIO.output(17, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
+            if (GPIO.input(7)) == 1:
+                sec = 0
 
         GPIO.output(17, GPIO.LOW)
 
@@ -102,6 +126,8 @@ def anhebenUnten(dc,sec):
             GPIO.output(27, GPIO.HIGH)
             time.sleep(0.04)
             sec -=0.04
+            if (GPIO.input(7)) == 1:
+                sec = 0
 
 
         p.stop()
@@ -129,6 +155,8 @@ def schubOeffnen(dc, sec):
             GPIO.output(10, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
+            if (GPIO.input(7)) == 1:
+                sec = 0
 
         p.stop()
         GPIO.output(10, GPIO.LOW)
@@ -155,6 +183,8 @@ def schubSchliessen(dc, sec):
             GPIO.output(22, GPIO.HIGH)
             time.sleep(0.01)
             sec -= 0.01
+            if (GPIO.input(7)) == 1:
+                sec = 0
 
 
         p.stop()
@@ -163,29 +193,6 @@ def schubSchliessen(dc, sec):
     finally:
         GPIO.cleanup()
 
-
-def vibSortThreaded(dc, sec):
-
-    try:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(9, GPIO.OUT)
-        GPIO.setup(11, GPIO.OUT)
-        GPIO.setup(19, GPIO.OUT)
-
-
-        GPIO.output(9, GPIO.LOW)
-
-        p = GPIO.PWM(19, 2000)
-        p.start(dc)
-
-        GPIO.output(11, GPIO.HIGH)
-        time.sleep(sec)
-
-        p.stop()
-        GPIO.output(11, GPIO.LOW)
-
-    finally:
-        GPIO.cleanup()
 
 def vibSort(dc, sec):
     try:
@@ -202,7 +209,11 @@ def vibSort(dc, sec):
         p.start(dc)
 
         GPIO.output(11, GPIO.HIGH)
-        time.sleep(sec)
+        while sec >= 0:
+            sec -= 0.01
+            time.sleep(0.01)
+            if (GPIO.input(7)) == 1:
+                sec = 0
 
         p.stop()
         GPIO.output(11, GPIO.LOW)
@@ -227,7 +238,11 @@ def vibAnord(dc, sec):
 
         GPIO.output(6, GPIO.HIGH)
 
-        time.sleep(sec)
+        while sec >= 0:
+            sec -= 0.01
+            time.sleep(0.01)
+            if (GPIO.input(7)) == 1:
+                sec = 0
         p.stop()
         GPIO.output(6, GPIO.LOW)
 
