@@ -43,34 +43,34 @@ while bool == True:
 
             if (GPIO.input(24)) == 1:  #Sortieren SortP
                 Motoren.initAnfangszustand()
-                if GPIO.input(1):
+                if GPIO.input(7):
                     break
                 print("INIT ERLEDIGT!")
                 print("-----------" * 6)
                 time.sleep(3)
                 Motoren.konstantesAnheben(90, 75, 10)
-                if GPIO.input(1):
+                if GPIO.input(7):
                     break
                 print("Schublade wird geöffnet")
                 print("-----------" * 6)
                 time.sleep(2)
                 Motoren.anhebenUnten(40, 5)
-                if GPIO.input(1):
+                if GPIO.input(7):
                     break
                 Motoren.schubOeffnen(90, 5)
-                if GPIO.input(1):
+                if GPIO.input(7):
                     break
                 time.sleep(2)
                 Motoren.konstantesAnheben(90, 85, 10)
-                if GPIO.input(1):
+                if GPIO.input(7):
                     break
                 Motoren.anhebenUnten(40,3)
-                if GPIO.input(1):
+                if GPIO.input(7):
                     break
             if (GPIO.input(25)) == 1:               #Anordnungsplattform
                 if (GPIO.input(23)) == 0:           #Falls Schublade nicht bereits offen
                     Motoren.schubOeffnen(85,4)      #Öffne Schublade
-                    if GPIO.input(1):
+                    if GPIO.input(7):
                         break
                 Motoren.vibAnord(90, 30)
             if (GPIO.input(8)) == 1:                #Ganzes System
