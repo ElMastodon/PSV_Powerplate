@@ -162,9 +162,11 @@ def schubOeffnen(dc, sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stopp = True
 
         p.stop()
         GPIO.output(10, GPIO.LOW)
+        return stopp
     finally:
         GPIO.cleanup()
 
