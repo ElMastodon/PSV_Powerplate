@@ -63,7 +63,7 @@ while bool == True:
             if (GPIO.input(8)) == 1:                #Ganzes System
                 Motoren.ganzesSystemDurchlaufen()
             if (GPIO.input(7)):
-                Motoren.schubSchliessen(90,3)
+                Motoren.schubSchliessen(100,3)
                 Motoren.anhebenUnten(40,3)
 
 
