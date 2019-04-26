@@ -120,7 +120,7 @@ def anhebenUnten(dc,sec):
         p.start(dc)
 
 
-        print(GPIO.input(14))
+
 
 
         while (GPIO.input(14)) == 0 and sec > 0:
