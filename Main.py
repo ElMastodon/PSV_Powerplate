@@ -11,12 +11,6 @@ bool = True
 
 while bool == True:
 
-
-    #while True:
-    #    GPIO.setmode(GPIO.BCM)
-    #    GPIO.setup(14, GPIO.IN)
-    #    print(GPIO.input(14))
-
     print("Sie können folgende Sachen machen:")
     print("Drücken Sie 0 + Entertaste um den ganzen Prozess durchzuführen!")
     print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
@@ -30,19 +24,22 @@ while bool == True:
     print ("-----------" * 6)
 
     print("Drücken Sie 99 + Entertaste um das System über die Knöpfe zu steuern")
+    print("-----------" * 6)
 
 
     inputVal = int(input("Geben Sie eine Option an!"))
 
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(24, GPIO.IN)  # Sortieren SortP
+    GPIO.setup(25, GPIO.IN)  # Anordnen
+    GPIO.setup(8, GPIO.IN)  # Ganzes System
+    GPIO.setup(7, GPIO.IN)  # Stopp
+
+    GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
+
     while inputVal == 99:
         try:
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(24, GPIO.IN) #Sortieren SortP
-            GPIO.setup(25, GPIO.IN) #Anordnen
-            GPIO.setup(8, GPIO.IN)  #Ganzes System
-            GPIO.setup(7, GPIO.IN)  #Stopp
 
-            GPIO.setup(23, GPIO.IN) #Endschalter Schublade offen
 
             if (GPIO.input(24)) == 1:
                 Motoren.initAnfangszustand()
