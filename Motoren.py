@@ -21,7 +21,6 @@ def ganzesSystemDurchlaufen():
     print("-----------" * 6)
     time.sleep(2)
     vibAnord(100, 20)
-    print("Lichtdurchlässigkeit wird getestet")
     print("-----------" * 6)
     time.sleep(2)
     anhebenUnten(40, 1)
