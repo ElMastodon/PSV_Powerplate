@@ -10,7 +10,7 @@ print ("-----------" * 6)
 bool = True
 
 while bool == True:
-    inputVal = 99
+
 
     #while True:
     #    GPIO.setmode(GPIO.BCM)
@@ -28,6 +28,9 @@ while bool == True:
     print("Drücken Sie 7 + Entertaste um die Prüflingsform zu prüfen")
     print("Drücken Sie 8 + Entertaste umd das Programm zu beenden")
     print ("-----------" * 6)
+
+    print("Drücken Sie 99 + Entertaste um das System über die Knöpfe zu steuern")
+
 
     inputVal = int(input("Geben Sie eine Option an!"))
 
