@@ -42,6 +42,7 @@ while bool == True:
             GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
             if (GPIO.input(24)) == 1:  #Sortieren SortP
+
                 Motoren.initAnfangszustand()
                 print("INIT ERLEDIGT!")
                 print("-----------" * 6)

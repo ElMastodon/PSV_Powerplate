@@ -42,6 +42,7 @@ def konstantesAnheben(dcAn,dcVib , sec):
         GPIO.setup(9, GPIO.OUT)
         GPIO.setup(11, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
         GPIO.output(27, GPIO.LOW)
         GPIO.output(9, GPIO.LOW)
@@ -77,6 +78,7 @@ def anhebenOben(dc, sec):
         GPIO.setup(27, GPIO.OUT)
         GPIO.setup(18, GPIO.OUT)
         GPIO.setup(26, GPIO.IN)  # Endschalter Oben
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
         GPIO.output(27, GPIO.LOW)
 
@@ -109,6 +111,7 @@ def anhebenUnten(dc,sec):
         GPIO.setup(27, GPIO.OUT)    #Signal zu H-Brücke 2
         GPIO.setup(18, GPIO.OUT)  # PWM
         GPIO.setup(14, GPIO.IN)  # Endschalter Unten
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
         GPIO.output(17, GPIO.LOW)  #Beides auf Low stellen
         GPIO.output(27, GPIO.LOW)
@@ -144,6 +147,7 @@ def schubOeffnen(dc, sec):
         GPIO.setup(10, GPIO.OUT)
         GPIO.setup(13, GPIO.OUT)  # PWM SIgnal
         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade aussen
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
         GPIO.output(22, GPIO.LOW)
 
@@ -170,6 +174,7 @@ def schubSchliessen(dc, sec):
         GPIO.setup(10, GPIO.OUT)
         GPIO.setup(13, GPIO.OUT) # PWM SIgnal
         GPIO.setup(15, GPIO.IN)  # Endschalter Schublade innen
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
 
         GPIO.output(22, GPIO.LOW)
@@ -200,6 +205,7 @@ def vibSort(dc, sec):
         GPIO.setup(11, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
         GPIO.setup(26, GPIO.IN)
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
 
         GPIO.output(9, GPIO.LOW)
@@ -227,6 +233,7 @@ def vibAnord(dc, sec):
         GPIO.setup(5, GPIO.OUT)
         GPIO.setup(6, GPIO.OUT)
         GPIO.setup(12, GPIO.OUT) #PWM
+        GPIO.setup(7, GPIO.IN)  # Stopp
 
         GPIO.output(5, GPIO.LOW) #Auf 0 setzen
         GPIO.output(6, GPIO.LOW)
