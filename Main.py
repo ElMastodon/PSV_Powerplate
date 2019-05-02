@@ -46,6 +46,9 @@ while bool == True:
 
 
                 Motoren.initAnfangszustand()
+
+                GPIO.setup(7, GPIO.IN)  # Stopp
+
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -58,6 +61,9 @@ while bool == True:
                 print("-----------" * 6)
                 time.sleep(3)
                 Motoren.konstantesAnheben(90, 75, 10)
+
+                GPIO.setup(7, GPIO.IN)  # Stopp
+
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -70,6 +76,9 @@ while bool == True:
                 print("-----------" * 6)
                 time.sleep(2)
                 Motoren.anhebenUnten(40, 5)
+
+                GPIO.setup(7, GPIO.IN)  # Stopp
+
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -79,6 +88,9 @@ while bool == True:
                     GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
                     break
                 Motoren.schubOeffnen(90, 5)
+
+                GPIO.setup(7, GPIO.IN)  # Stopp
+
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -89,6 +101,9 @@ while bool == True:
                     break
                 time.sleep(2)
                 Motoren.konstantesAnheben(90, 85, 10)
+
+                GPIO.setup(7, GPIO.IN)  # Stopp
+
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -111,6 +126,9 @@ while bool == True:
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
                 if (GPIO.input(23)) == 0:
+
+                    GPIO.setup(7, GPIO.IN)  # Stopp
+
                     if GPIO.input(7):
                         GPIO.setmode(GPIO.BCM)
                         GPIO.setup(24, GPIO.IN)  # Sortieren SortP
