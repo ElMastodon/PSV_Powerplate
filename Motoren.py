@@ -9,6 +9,8 @@ def ganzesSystemDurchlaufen():
         initAnfangszustand()
         print("INIT ERLEDIGT!")
         print("-----------" * 6)
+        time.sleep(1)
+        vibSort(80,10)
         time.sleep(3)
         konstantesAnheben(90, 75, 10)
         print("Schublade wird geöffnet")
