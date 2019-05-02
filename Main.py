@@ -68,11 +68,12 @@ while bool == True:
                 if GPIO.input(7):
                     break
                 Motoren.anhebenUnten(40,3)
-                if GPIO.input(7):
-                    break
             if (GPIO.input(25)) == 1:               #Anordnungsplattform
                 if (GPIO.input(23)) == 0:           #Falls Schublade nicht bereits offen
                     Motoren.schubOeffnen(85,4)      #Öffne Schublade
+                    if GPIO.input(7):
+                        break
+
                 Motoren.vibAnord(90, 30)
             if (GPIO.input(8)) == 1:                #Ganzes System
                 Motoren.ganzesSystemDurchlaufen()
