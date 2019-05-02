@@ -47,6 +47,7 @@ while bool == True:
 
                 Motoren.initAnfangszustand()
 
+                GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stopp
 
                 if GPIO.input(7):
@@ -62,6 +63,7 @@ while bool == True:
                 time.sleep(3)
                 Motoren.konstantesAnheben(90, 75, 10)
 
+                GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stopp
 
                 if GPIO.input(7):
@@ -77,6 +79,7 @@ while bool == True:
                 time.sleep(2)
                 Motoren.anhebenUnten(40, 5)
 
+                GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stopp
 
                 if GPIO.input(7):
@@ -89,6 +92,7 @@ while bool == True:
                     break
                 Motoren.schubOeffnen(90, 5)
 
+                GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stopp
 
                 if GPIO.input(7):
@@ -102,6 +106,7 @@ while bool == True:
                 time.sleep(2)
                 Motoren.konstantesAnheben(90, 85, 10)
 
+                GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stopp
 
                 if GPIO.input(7):
@@ -127,6 +132,7 @@ while bool == True:
 
                 if (GPIO.input(23)) == 0:
 
+                    GPIO.setmode(GPIO.BCM)
                     GPIO.setup(7, GPIO.IN)  # Stopp
 
                     if GPIO.input(7):
