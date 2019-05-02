@@ -20,7 +20,7 @@ def ganzesSystemDurchlaufen():
     print("Vibration der Anordnungsplattform wird durchgeführt")
     print("-----------" * 6)
     time.sleep(2)
-    vibAnord(100, 20)
+    vibAnord(90, 30)
     print("-----------" * 6)
     time.sleep(2)
     anhebenUnten(40, 1)
@@ -28,8 +28,6 @@ def ganzesSystemDurchlaufen():
 def initAnfangszustand():
     anhebenUnten(40,1)
     schubSchliessen(90,4)
-    GPIO.cleanup()
-
 
 def konstantesAnheben(dcAn,dcVib , sec):
     try:

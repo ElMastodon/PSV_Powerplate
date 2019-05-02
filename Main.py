@@ -62,7 +62,7 @@ while bool == True:
                 Motoren.vibAnord(90, 30)
             if (GPIO.input(8)) == 1:                #Ganzes System
                 Motoren.ganzesSystemDurchlaufen()
-            if (GPIO.input(7)):
+            if (GPIO.input(7)):                     #stopp
                 Motoren.schubSchliessen(100,3)
                 Motoren.anhebenUnten(40,3)
 
