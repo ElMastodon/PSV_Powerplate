@@ -13,14 +13,14 @@ def ganzesSystemDurchlaufen():
         vibSort(80,10)
 
         time.sleep(0.5)
-        konstantesAnheben(90, 55, 10)
+        konstantesAnheben(90, 70, 10)
 
         print("Schublade wird geöffnet")
         print("-----------" * 6)
         time.sleep(2)
         anhebenUnten(40, 5)
 
-        schubOeffnen(90, 5)
+        schubOeffnen(85, 5)
 
         time.sleep(0.5)
         konstantesAnheben(90, 90, 10)
@@ -39,7 +39,7 @@ def ganzesSystemDurchlaufen():
 
 def initAnfangszustand():
     anhebenUnten(40,1)
-    schubSchliessen(90,4)
+    schubSchliessen(85,4)
 
 def konstantesAnheben(dcAn,dcVib , sec):
     try:
