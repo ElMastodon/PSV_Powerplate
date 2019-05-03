@@ -202,7 +202,7 @@ def schubSchliessen(dc, sec):
             sec -= 0.01
 
 
-            if (GPIO.input2(7)) == 1:
+            if (GPIO.input(7)) == 1:
                 sec = 0
 
 
