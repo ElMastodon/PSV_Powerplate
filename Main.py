@@ -219,7 +219,7 @@ while bool == True:
     elif inputVal == 8:
         bool = False
     elif inputVal ==9:
-        Motoren.konstantesAnheben(85,65,10)
+        Motoren.konstantesAnheben(85,55,10)
     elif inputVal == 0:
         Motoren.ganzesSystemDurchlaufen()
 
