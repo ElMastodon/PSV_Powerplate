@@ -10,7 +10,7 @@ def ganzesSystemDurchlaufen():
         print("INIT ERLEDIGT!")
         print("-----------" * 6)
         time.sleep(1)
-        vibSort(60,10)
+        vibSort(80,10)
 
         time.sleep(3)
         konstantesAnheben(90, 65, 10)
@@ -23,12 +23,12 @@ def ganzesSystemDurchlaufen():
         schubOeffnen(90, 5)
 
         time.sleep(2)
-        konstantesAnheben(90, 85, 10)
+        konstantesAnheben(90, 90, 10)
 
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
         time.sleep(2)
-        vibAnord(100, 30)
+        vibAnord(90, 30)
 
         print("-----------" * 6)
         time.sleep(2)
