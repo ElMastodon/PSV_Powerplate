@@ -48,7 +48,9 @@ while bool == True:
                 Motoren.initAnfangszustand()
 
                 GPIO.setmode(GPIO.BCM)
-                GPIO.setup(7, GPIO.IN)  # Stopp
+                GPIO.setup(7, GPIO.IN)  # Stop
+
+                Motoren.vibSort(75,5)
 
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
@@ -170,7 +172,7 @@ while bool == True:
                 GPIO.setup(8, GPIO.IN)  # Ganzes System
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-            if (GPIO.input(7)) == 1:                #stopp
+            if (GPIO.input(7)) == 1:         #stopp
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -179,7 +181,7 @@ while bool == True:
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
-                Motoren.schubSchliessen(80,3)
+                Motoren.schubSchliessen(100,3)
                 Motoren.anhebenUnten(40,3)
 
                 GPIO.setmode(GPIO.BCM)

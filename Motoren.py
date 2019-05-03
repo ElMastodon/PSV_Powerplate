@@ -11,28 +11,35 @@ def ganzesSystemDurchlaufen():
         print("-----------" * 6)
         time.sleep(1)
         vibSort(60,10)
+
         time.sleep(3)
         konstantesAnheben(90, 75, 10)
+
         print("Schublade wird geöffnet")
         print("-----------" * 6)
         time.sleep(2)
         anhebenUnten(40, 5)
+
         schubOeffnen(90, 5)
+
         time.sleep(2)
         konstantesAnheben(90, 85, 10)
+
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
         time.sleep(2)
         vibAnord(100, 30)
+
         print("-----------" * 6)
         time.sleep(2)
         anhebenUnten(40, 1)
+
     finally:
         GPIO.cleanup()
 
 def initAnfangszustand():
     anhebenUnten(40,1)
-    schubSchliessen(90,4)
+    schubSchliessen(100,4)
 
 def konstantesAnheben(dcAn,dcVib , sec):
     try:
@@ -155,12 +162,12 @@ def schubOeffnen(dc, sec):
 
         p = GPIO.PWM(13, 2000)
         p.start(dc)
-        counter = 1
+        counter = 0.05
 
         while (GPIO.input(23)) == 0 and sec > 0:
             GPIO.output(10, GPIO.HIGH)
             time.sleep(0.01)
-            sec -= 0.05
+            sec -= 0.01
             p.start(dc - counter)
 
             if (GPIO.input(7)) == 1:
@@ -187,12 +194,12 @@ def schubSchliessen(dc, sec):
 
         p = GPIO.PWM(13, 2000)
         p.start(dc)
-        counter = 1
+        counter = 0.1
 
         while (GPIO.input(15)) == 0 and sec > 0:
             GPIO.output(22, GPIO.HIGH)
             time.sleep(0.01)
-            sec -= 0.04
+            sec -= 0.01
             p.start(dc - counter)
 
             if (GPIO.input(7)) == 1:
