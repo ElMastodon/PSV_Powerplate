@@ -13,7 +13,7 @@ def ganzesSystemDurchlaufen():
         vibSort(60,10)
 
         time.sleep(3)
-        konstantesAnheben(90, 75, 10)
+        konstantesAnheben(90, 65, 10)
 
         print("Schublade wird geöffnet")
         print("-----------" * 6)

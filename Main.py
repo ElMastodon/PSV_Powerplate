@@ -50,7 +50,7 @@ while bool == True:
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stop
 
-                Motoren.vibSort(75,5)
+                Motoren.vibSort(80,5)
 
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
@@ -219,7 +219,7 @@ while bool == True:
     elif inputVal == 8:
         bool = False
     elif inputVal ==9:
-        Motoren.konstantesAnheben(85,85,10)
+        Motoren.konstantesAnheben(85,65,10)
     elif inputVal == 0:
         Motoren.ganzesSystemDurchlaufen()
 
