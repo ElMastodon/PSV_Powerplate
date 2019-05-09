@@ -195,6 +195,7 @@ def schubSchliessen(dc, sec):
         GPIO.setup(22, GPIO.OUT)
         GPIO.setup(10, GPIO.OUT)
         GPIO.setup(13, GPIO.OUT) # PWM SIgnal
+        GPIO.setup(23, GPIO.IN)  # Endschalter Schublade aussen
         GPIO.setup(15, GPIO.IN)  # Endschalter Schublade innen
         GPIO.setup(7, GPIO.IN)  # Stopp
 
@@ -207,13 +208,13 @@ def schubSchliessen(dc, sec):
 
         while (GPIO.input(15)) == 0 and sec > 0:
 
-            if GPIO.input(15) == 1:
+            if GPIO.input(23) == 1:
                 p.start(100)
                 GPIO.output(10, GPIO.HIGH)
                 time.sleep(0.3)
                 sec -= 0.3
 
-            if GPIO.input(15) == 0:
+            if GPIO.input(23) == 0:
                 p.start(dc)
                 GPIO.output(10, GPIO.HIGH)
                 time.sleep(0.01)
