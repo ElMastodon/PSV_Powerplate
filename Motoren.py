@@ -168,8 +168,8 @@ def schubOeffnen(dc, sec):
             if GPIO.input(15) == 1:
                 p.start(100)
                 GPIO.output(10, GPIO.HIGH)
-                time.sleep(0.01)
-                sec -= 0.01
+                time.sleep(0.1)
+                sec -= 0.1
 
             if GPIO.input(15) == 0:
                 p.start(dc)
