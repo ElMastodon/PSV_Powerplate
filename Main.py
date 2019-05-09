@@ -124,7 +124,12 @@ while bool == True:
                     break
                 Motoren.anhebenUnten(40,3)
 
-
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(24, GPIO.IN)  # Sortieren SortP
+            GPIO.setup(25, GPIO.IN)  # Anordnen
+            GPIO.setup(8, GPIO.IN)  # Ganzes System
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
             if (GPIO.input(25)) == 1:               #Anordnungsplattform
 
