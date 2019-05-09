@@ -195,7 +195,7 @@ while bool == True:
         finally:
             GPIO.cleanup()
 
-    if (inputVal <= 6) and (inputVal >0) :
+    if ((inputVal <= 6) and (inputVal >0)) or (inputVal ==9) :
         dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
         sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
         print("-----------" * 6)
@@ -219,7 +219,7 @@ while bool == True:
     elif inputVal == 8:
         bool = False
     elif inputVal ==9:
-        Motoren.konstantesAnheben(85,55,10)
+        Motoren.konstantesAnheben(85,dc,sec)
     elif inputVal == 0:
         Motoren.ganzesSystemDurchlaufen()
 
