@@ -156,18 +156,22 @@ def schubOeffnen(dc, sec):
         GPIO.setup(10, GPIO.OUT)
         GPIO.setup(13, GPIO.OUT)  # PWM SIgnal
         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade aussen
+        GPIO.setup(15, GPIO.IN)  # Endschalter Schublade innen
         GPIO.setup(7, GPIO.IN)  # Stopp
 
         GPIO.output(22, GPIO.LOW)
 
         p = GPIO.PWM(13, 2000)
-        p.start(dc)
+        p.start(100)
         counter = 0.05
 
         while (GPIO.input(23)) == 0 and sec > 0:
-            GPIO.output(10, GPIO.HIGH)
-            time.sleep(0.01)
-            sec -= 0.01
+
+            if GPIO.input(15) == 1:
+                p.start(dc)
+                GPIO.output(10, GPIO.HIGH)
+                time.sleep(0.01)
+                sec -= 0.01
 
 
             if (GPIO.input(7)) == 1:
