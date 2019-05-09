@@ -219,7 +219,7 @@ while bool == True:
     elif inputVal == 8:
         bool = False
     elif inputVal ==9:
-        Motoren.vibSort(80,10)
+        Motoren.vibSort(80,3)
         Motoren.konstantesAnheben(85,dc,sec)
     elif inputVal == 0:
         Motoren.ganzesSystemDurchlaufen()
