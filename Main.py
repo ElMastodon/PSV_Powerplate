@@ -52,6 +52,9 @@ while bool == True:
 
                 Motoren.vibSort(80,5)
 
+                GPIO.setmode(GPIO.BCM)
+                GPIO.setup(7, GPIO.IN)  # Stop
+
                 if GPIO.input(7):
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(24, GPIO.IN)  # Sortieren SortP

@@ -205,12 +205,21 @@ def schubSchliessen(dc, sec):
         p = GPIO.PWM(13, 2000)
         p.start(dc)
 
+        secStart = sec
 
         while (GPIO.input(15)) == 0 and sec > 0:
-            GPIO.output(22, GPIO.HIGH)
-            time.sleep(0.01)
-            sec -= 0.01
 
+            if (secStart - sec) < 0.3:
+                p.start(100)
+                GPIO.output(22, GPIO.HIGH)
+                time.sleep(0.01)
+                sec -= 0.01
+
+            if (secStart - sec) >= 0.3:
+                p.start(100)
+                GPIO.output(22, GPIO.HIGH)
+                time.sleep(0.01)
+                sec -= 0.01
 
             if (GPIO.input(7)) == 1:
                 sec = 0
