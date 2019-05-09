@@ -162,15 +162,22 @@ def schubOeffnen(dc, sec):
         GPIO.output(22, GPIO.LOW)
 
         p = GPIO.PWM(13, 2000)
-        p.start(100)
 
         while (GPIO.input(23)) == 0 and sec > 0:
+
+            if GPIO.input(15) == 1:
+                p.start(100)
+                GPIO.output(10, GPIO.HIGH)
+                time.sleep(0.01)
+                sec -= 0.01
 
             if GPIO.input(15) == 0:
                 p.start(dc)
                 GPIO.output(10, GPIO.HIGH)
                 time.sleep(0.01)
                 sec -= 0.01
+
+
 
 
             if (GPIO.input(7)) == 1:
