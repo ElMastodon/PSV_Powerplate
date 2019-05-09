@@ -39,7 +39,7 @@ def ganzesSystemDurchlaufen():
 
 def initAnfangszustand():
     anhebenUnten(40,1)
-    schubSchliessen(95,4)
+    schubSchliessen(90,4)
 
 def konstantesAnheben(dcAn,dcVib , sec):
     try:
@@ -209,14 +209,14 @@ def schubSchliessen(dc, sec):
 
         while (GPIO.input(15)) == 0 and sec > 0:
 
-            if (secStart - sec) < 0.3:
+            if (secStart - sec) < (secStart -0.3):
                 p.start(100)
                 GPIO.output(22, GPIO.HIGH)
                 time.sleep(0.01)
                 sec -= 0.01
 
-            if (secStart - sec) >= 0.3:
-                p.start(100)
+            if sec <= (secStart - 0.3):
+                p.start(dc)
                 GPIO.output(22, GPIO.HIGH)
                 time.sleep(0.01)
                 sec -= 0.01
