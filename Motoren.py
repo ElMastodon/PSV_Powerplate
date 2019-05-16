@@ -214,7 +214,7 @@ def schubSchliessen(dc, sec):
         secStart = sec
         print("Setstart gesetzt")
         while (GPIO.input(15)) == 0 and sec > 0:
-        print("while")
+            print("while")
             if sec > (secStart-0.2):
                 p.start(100)
                 GPIO.output(22, GPIO.HIGH)
