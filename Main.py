@@ -191,7 +191,7 @@ while bool == True:
 
                 Motoren.schubSchliessen(80,3)
                 Motoren.anhebenUnten(40,3)
-
+                time.sleep(0.5)
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
                 GPIO.setup(25, GPIO.IN)  # Anordnen

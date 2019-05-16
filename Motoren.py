@@ -289,6 +289,7 @@ def vibAnord(dc, sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
+                time.sleep(0.5)
 
 
         p.stop()
