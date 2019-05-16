@@ -217,13 +217,13 @@ def schubSchliessen(dc, sec):
 
         while (GPIO.input(15)) == 0 and sec > 0:
 
-            if (secStart - sec) < (secStart -0.3):
+            if sec > (secStart -0.2):
                 p.start(100)
                 GPIO.output(22, GPIO.HIGH)
                 time.sleep(0.01)
                 sec -= 0.01
 
-            if sec <= (secStart - 0.3):
+            if sec <= (secStart - 0.2):
                 p.start(dc)
                 GPIO.output(22, GPIO.HIGH)
                 time.sleep(0.01)
