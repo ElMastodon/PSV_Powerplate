@@ -9,6 +9,27 @@ print ("-----------" * 6)
 
 bool = True
 
+secSchub = 3
+secVibAnord = 30
+secVibSort = 10
+secVibAnheben = 10
+secUnten = 1
+
+def secStandard():
+    secSchub = 3
+    secVibAnord = 30
+    secVibSort = 10
+    secVibAnheben = 10
+    secUnten = 1
+
+def secReset():
+    secSchub = 3
+    secVibAnord = 30
+    secVibSort = 10
+    secVibAnheben = 10
+    secUnten = 1
+
+
 while bool == True:
 
     print("Sie können folgende Sachen machen:")
@@ -166,7 +187,6 @@ while bool == True:
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
             if (GPIO.input(8)) == 1:                #Ganzes System
-                Stop = False
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
                 GPIO.setup(25, GPIO.IN)  # Anordnen
@@ -174,9 +194,8 @@ while bool == True:
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
-                Motoren.ganzesSystemDurchlaufen()
-                if Stop == True:
-                    break
+                Motoren.ganzesSystemDurchlaufen(secSchub,secUnten,secVibAnheben,secVibAnord,secVibSort)
+
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
