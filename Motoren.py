@@ -197,6 +197,7 @@ def schubOeffnen(dc, sec):
 
 def schubSchliessen(dc, sec):
     try:
+        print("funktion gestartet")
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(22, GPIO.OUT)
         GPIO.setup(10, GPIO.OUT)
