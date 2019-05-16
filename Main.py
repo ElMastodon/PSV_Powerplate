@@ -212,7 +212,7 @@ while bool == True:
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
                 print("stop gedrückt")
-                Motoren.schubSchliessen(80, 3)
+                Motoren.schubSchliessen(80, secSchub)
                 Motoren.anhebenUnten(40,3)
 
                 GPIO.setmode(GPIO.BCM)
