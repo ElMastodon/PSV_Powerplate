@@ -65,7 +65,7 @@ while bool == True:
                         GPIO.setup(8, GPIO.IN)  # Ganzes System
                         GPIO.setup(7, GPIO.IN)  # Stopp
                         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                        break
+                        grundfunktionen()
                     print("INIT ERLEDIGT!")
                     print("-----------" * 6)
                     time.sleep(3)
@@ -81,7 +81,7 @@ while bool == True:
                         GPIO.setup(8, GPIO.IN)  # Ganzes System
                         GPIO.setup(7, GPIO.IN)  # Stopp
                         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                        break
+                        grundfunktionen()
                     print("Schublade wird geöffnet")
                     print("-----------" * 6)
                     time.sleep(2)
@@ -97,7 +97,7 @@ while bool == True:
                         GPIO.setup(8, GPIO.IN)  # Ganzes System
                         GPIO.setup(7, GPIO.IN)  # Stopp
                         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                        break
+                        grundfunktionen()
                     Motoren.schubOeffnen(90, 5)
 
                     GPIO.setmode(GPIO.BCM)
@@ -110,7 +110,7 @@ while bool == True:
                         GPIO.setup(8, GPIO.IN)  # Ganzes System
                         GPIO.setup(7, GPIO.IN)  # Stopp
                         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                        break
+                        grundfunktionen()
                     time.sleep(2)
                     Motoren.konstantesAnheben(90, 85, 10)
 
@@ -124,7 +124,7 @@ while bool == True:
                         GPIO.setup(8, GPIO.IN)  # Ganzes System
                         GPIO.setup(7, GPIO.IN)  # Stopp
                         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                        break
+                        grundfunktionen()
                     Motoren.anhebenUnten(40,3)
 
                 GPIO.setmode(GPIO.BCM)
@@ -155,7 +155,7 @@ while bool == True:
                             GPIO.setup(8, GPIO.IN)  # Ganzes System
                             GPIO.setup(7, GPIO.IN)  # Stopp
                             GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                            break
+                            grundfunktionen()
 
                     Motoren.vibAnord(90, 30)
 
