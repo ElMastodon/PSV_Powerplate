@@ -1,8 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import Main
 
-import _thread
 
 
 # Pin 12 (GPIO17) um Plattform anzuheben
