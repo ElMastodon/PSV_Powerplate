@@ -1,55 +1,45 @@
 import RPi.GPIO as GPIO
 import time
-
-
-def secStandard():
-    secSchub = 3
-    secVibAnord = 30
-    secVibSort = 10
-    secVibAnheben = 10
-    secUnten = 1
-
+import _thread
 
 def secReset():
     secSchub = 3
-    secVibAnord = 30
-    secVibSort = 10
-    secVibAnheben = 10
-    secUnten = 1
+    secAnord = 30
+    secSort = 10
+
 
 
 # Pin 12 (GPIO17) um Plattform anzuheben
-def ganzesSystemDurchlaufen(secSchub,secUnten,secVibAnheben,secVibAnord,secVibSort):
+def ganzesSystemDurchlaufen():
     try:
-
         initAnfangszustand()
         print("INIT ERLEDIGT!")
         print("-----------" * 6)
         time.sleep(1)
-        vibSort(80,secVibSort)
+        vibSort(80,10)
 
         time.sleep(0.5)
-        konstantesAnheben(90, 70, secVibAnheben)
+        konstantesAnheben(90, 70, 10)
 
         print("Schublade wird geöffnet")
         print("-----------" * 6)
         time.sleep(2)
-        anhebenUnten(40, secUnten)
+        anhebenUnten(40, 5)
 
-        schubOeffnen(85, secSchub)
+        schubOeffnen(85, 5)
 
         time.sleep(0.5)
-        konstantesAnheben(90, 90, secVibAnheben)
+        konstantesAnheben(90, 90, 10)
 
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
         time.sleep(2)
-        vibAnord(90, secVibAnord)
+        vibAnord(90, 30)
 
         print("-----------" * 6)
         time.sleep(0)
-        anhebenUnten(40, secUnten)
-        secStandard()
+        anhebenUnten(40, 1)
+
     finally:
         GPIO.cleanup()
 
@@ -87,7 +77,6 @@ def konstantesAnheben(dcAn,dcVib , sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
-                secReset()
 
         GPIO.output(17, GPIO.LOW)
         p1.stop
@@ -118,8 +107,6 @@ def anhebenOben(dc, sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
-                secReset()
-
 
         GPIO.output(17, GPIO.LOW)
 
@@ -158,8 +145,6 @@ def anhebenUnten(dc,sec):
             sec -=0.04
             if (GPIO.input(7)) == 1:
                 sec = 0
-                secReset()
-
 
 
         p.stop()
@@ -198,10 +183,11 @@ def schubOeffnen(dc, sec):
                 time.sleep(0.01)
                 sec -= 0.01
 
+
+
+
             if (GPIO.input(7)) == 1:
                 sec = 0
-                secReset()
-
 
         p.stop()
         GPIO.output(10, GPIO.LOW)
@@ -211,8 +197,6 @@ def schubOeffnen(dc, sec):
 
 def schubSchliessen(dc, sec):
     try:
-        time.sleep(1)
-        print("funktion gestartet")
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(22, GPIO.OUT)
         GPIO.setup(10, GPIO.OUT)
@@ -228,16 +212,16 @@ def schubSchliessen(dc, sec):
         p.start(dc)
 
         secStart = sec
-        print("Setstart gesetzt")
+
         while (GPIO.input(15)) == 0 and sec > 0:
-            print("while")
-            if sec > (secStart-0.2):
+
+            if (secStart - sec) < (secStart -0.3):
                 p.start(100)
                 GPIO.output(22, GPIO.HIGH)
                 time.sleep(0.01)
                 sec -= 0.01
 
-            if sec <= (secStart - 0.2):
+            if sec <= (secStart - 0.3):
                 p.start(dc)
                 GPIO.output(22, GPIO.HIGH)
                 time.sleep(0.01)
@@ -245,7 +229,6 @@ def schubSchliessen(dc, sec):
 
             if (GPIO.input(7)) == 1:
                 sec = 0
-                secReset()
 
 
         p.stop()
@@ -275,7 +258,7 @@ def vibSort(dc, sec):
             sec -= 0.01
             time.sleep(0.01)
             if (GPIO.input(7)) == 1:
-                secReset()
+                sec = 0
 
         p.stop()
         GPIO.output(11, GPIO.LOW)
@@ -306,7 +289,7 @@ def vibAnord(dc, sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
-                secReset()
+
 
         p.stop()
         GPIO.output(6, GPIO.LOW)

@@ -5,19 +5,9 @@ import RPi.GPIO as GPIO
 import threading
 
 print("Willkommen")
-print("-----------" * 6)
+print ("-----------" * 6)
 
 bool = True
-
-secSchub = 3
-secVibAnord = 30
-secVibSort = 10
-secVibAnheben = 10
-secUnten = 1
-
-
-
-
 
 while bool == True:
 
@@ -31,15 +21,17 @@ while bool == True:
     print("Drücken Sie 6 + Entertaste um die Anordnungsplattform zu vibrieren")
     print("Drücken Sie 7 + Entertaste um die Prüflingsform zu prüfen")
     print("Drücken Sie 8 + Entertaste umd das Programm zu beenden")
-    print("-----------" * 6)
+    print ("-----------" * 6)
 
     print("Drücken Sie 99 + Entertaste um das System über die Knöpfe zu steuern")
     print("-----------" * 6)
 
+
     inputVal = int(input("Geben Sie eine Option an!"))
 
-    while inputVal == 99:
 
+
+    while inputVal == 99:
         try:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -49,14 +41,16 @@ while bool == True:
 
             GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
-            if (GPIO.input(24)) == 1:  # Sortieren SortP
+            if (GPIO.input(24)) == 1:          #Sortieren SortP
+
+
 
                 Motoren.initAnfangszustand()
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stop
 
-                Motoren.vibSort(80, 5)
+                Motoren.vibSort(80,5)
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stop
@@ -128,7 +122,7 @@ while bool == True:
                     GPIO.setup(7, GPIO.IN)  # Stopp
                     GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
                     break
-                Motoren.anhebenUnten(40, 3)
+                Motoren.anhebenUnten(40,3)
 
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -137,7 +131,7 @@ while bool == True:
             GPIO.setup(7, GPIO.IN)  # Stopp
             GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
-            if (GPIO.input(25)) == 1:  # Anordnungsplattform
+            if (GPIO.input(25)) == 1:               #Anordnungsplattform
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -169,15 +163,7 @@ while bool == True:
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
 
-            if (GPIO.input(8)) == 1:  # Ganzes System
-                GPIO.setmode(GPIO.BCM)
-                GPIO.setup(24, GPIO.IN)  # Sortieren SortP
-                GPIO.setup(25, GPIO.IN)  # Anordnen
-                GPIO.setup(8, GPIO.IN)  # Ganzes System
-                GPIO.setup(7, GPIO.IN)  # Stopp
-                GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-
-                Motoren.ganzesSystemDurchlaufen(secSchub, secUnten, secVibAnheben, secVibAnord, secVibSort)
+            if (GPIO.input(8)) == 1:                #Ganzes System
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -185,7 +171,8 @@ while bool == True:
                 GPIO.setup(8, GPIO.IN)  # Ganzes System
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-            if (GPIO.input(7)) == 1:  # stopp
+
+                Motoren.ganzesSystemDurchlaufen()
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -193,9 +180,17 @@ while bool == True:
                 GPIO.setup(8, GPIO.IN)  # Ganzes System
                 GPIO.setup(7, GPIO.IN)  # Stopp
                 GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
-                print("stop gedrückt")
-                Motoren.schubSchliessen(90, secSchub)
-                Motoren.anhebenUnten(40, 3)
+            if (GPIO.input(7)) == 1:         #stopp
+
+                GPIO.setmode(GPIO.BCM)
+                GPIO.setup(24, GPIO.IN)  # Sortieren SortP
+                GPIO.setup(25, GPIO.IN)  # Anordnen
+                GPIO.setup(8, GPIO.IN)  # Ganzes System
+                GPIO.setup(7, GPIO.IN)  # Stopp
+                GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
+
+                Motoren.schubSchliessen(80,3)
+                Motoren.anhebenUnten(40,3)
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(24, GPIO.IN)  # Sortieren SortP
@@ -208,32 +203,35 @@ while bool == True:
         finally:
             GPIO.cleanup()
 
-    if ((inputVal <= 6) and (inputVal > 0)) or (inputVal == 9):
+    if ((inputVal <= 6) and (inputVal >0)) or (inputVal ==9) :
         dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
         sec = int(input("Geben Sie die Laufzeit in Sekunden ein"))
         print("-----------" * 6)
 
+
+
     if inputVal == 1:
-        Motoren.anhebenOben(dc, sec)
+        Motoren.anhebenOben(dc,sec)
     elif inputVal == 2:
-        Motoren.anhebenUnten(dc, sec)
+        Motoren.anhebenUnten(dc,sec)
     elif inputVal == 3:
-        Motoren.schubOeffnen(dc, sec)
+        Motoren.schubOeffnen(dc,sec)
     elif inputVal == 4:
-        Motoren.schubSchliessen(dc, sec)
+        Motoren.schubSchliessen(dc,sec)
     elif inputVal == 5:
-        Motoren.vibSort(dc, sec)
+        Motoren.vibSort(dc,sec)
     elif inputVal == 6:
-        Motoren.vibAnord(dc, sec)
+        Motoren.vibAnord(dc,sec)
     elif inputVal == 7:
         TSL2561.getLux()
     elif inputVal == 8:
         bool = False
-    elif inputVal == 9:
-        Motoren.vibSort(80, 1.5)
+    elif inputVal ==9:
+        Motoren.vibSort(80,1.5)
         time.sleep(0.8)
-        Motoren.konstantesAnheben(85, dc, sec)
+        Motoren.konstantesAnheben(85,dc,sec)
     elif inputVal == 0:
         Motoren.ganzesSystemDurchlaufen()
 
-# elif inputVal == 9:
+   # elif inputVal == 9:
+
