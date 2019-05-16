@@ -1,5 +1,7 @@
 import RPi.GPIO as GPIO
 import time
+import Main
+
 import _thread
 
 
@@ -13,35 +15,35 @@ def ganzesSystemDurchlaufen():
         time.sleep(1)
         vibSort(80,10)
         if Stop == True:
-            return
+            Main.grundfunktionen()
         time.sleep(0.5)
         konstantesAnheben(90, 70, 10)
         if Stop == True:
-            return
+            Main.grundfunktionen()
         print("Schublade wird geöffnet")
         print("-----------" * 6)
         time.sleep(2)
         anhebenUnten(40, 5)
         if Stop == True:
-            return
+            Main.grundfunktionen()
         schubOeffnen(85, 5)
         if Stop == True:
-            return
+            Main.grundfunktionen()
         time.sleep(0.5)
         konstantesAnheben(90, 90, 10)
         if Stop == True:
-            return
+            Main.grundfunktionen()
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
         time.sleep(2)
         vibAnord(90, 30)
         if Stop == True:
-            return
+            Main.grundfunktionen()
         print("-----------" * 6)
         time.sleep(0)
         anhebenUnten(40, 1)
         if Stop == True:
-            return
+            Main.grundfunktionen()
     finally:
         GPIO.cleanup()
 
