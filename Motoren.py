@@ -211,6 +211,7 @@ def schubOeffnen(dc, sec):
 
 def schubSchliessen(dc, sec):
     try:
+        time.sleep(1)
         print("funktion gestartet")
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(22, GPIO.OUT)
@@ -245,7 +246,6 @@ def schubSchliessen(dc, sec):
             if (GPIO.input(7)) == 1:
                 sec = 0
                 secReset()
-
 
 
         p.stop()
