@@ -213,6 +213,8 @@ def schubSchliessen(dc, sec):
 
         secStart = sec
 
+        time.sleep(1)
+
         while (GPIO.input(15)) == 0 and sec > 0:
 
             if (secStart - sec) < (secStart -0.3):
