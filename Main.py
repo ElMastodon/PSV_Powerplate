@@ -32,7 +32,7 @@ while bool == True:
 
 
     while inputVal == 99:
-        grundfunktionen()
+
 
         def grundfunktionen():
             try:
@@ -205,6 +205,9 @@ while bool == True:
 
             finally:
                 GPIO.cleanup()
+
+
+        grundfunktionen()
 
     if ((inputVal <= 6) and (inputVal >0)) or (inputVal ==9) :
         dc = int(input("Geben Sie die eine Zahl zwischen 10-100 ein um die Leistung zu bestimmen"))
