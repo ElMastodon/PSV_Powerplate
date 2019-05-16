@@ -196,49 +196,9 @@ def schubOeffnen(dc, sec):
 
 
 def schubSchliessen(dc, sec):
-    try:
-        print("funktion gestartet")
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(22, GPIO.OUT)
-        GPIO.setup(10, GPIO.OUT)
-        GPIO.setup(13, GPIO.OUT) # PWM SIgnal
-        GPIO.setup(15, GPIO.IN)  # Endschalter Schublade innen
-        GPIO.setup(7, GPIO.IN)  # Stopp
+    print("funktion gestartet")
+    print(dc+sec)
 
-
-        GPIO.output(22, GPIO.LOW)
-        GPIO.output(10, GPIO.LOW)
-
-        p = GPIO.PWM(13, 2000)
-        p.start(dc)
-
-        secStart = sec
-        print("Setstart gesetzt")
-        while (GPIO.input(15)) == 0 and sec > 0:
-            print("while")
-            if sec > (secStart-0.2):
-                p.start(100)
-                GPIO.output(22, GPIO.HIGH)
-                time.sleep(0.01)
-                sec -= 0.01
-
-            if sec <= (secStart - 0.2):
-                p.start(dc)
-                GPIO.output(22, GPIO.HIGH)
-                time.sleep(0.01)
-                sec -= 0.01
-
-            if (GPIO.input(7)) == 1:
-                sec = 0
-                Main.secReset()
-
-
-
-        p.stop()
-        GPIO.output(22, GPIO.LOW)
-
-    finally:
-        GPIO.cleanup()
 
 
 def vibSort(dc, sec):
