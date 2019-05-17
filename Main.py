@@ -29,7 +29,7 @@ while bool == True:
     print("-----------" * 6)
 
 
-    inputVal = int(input("Geben Sie eine Option an!"))
+    inputVal = 99 #int(input("Geben Sie eine Option an!"))
 
 
 
@@ -97,7 +97,7 @@ while bool == True:
                     GPIO.setup(7, GPIO.IN)  # Stopp
                     GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
                     break
-                Motoren.schubOeffnen(90, 5)
+                Motoren.schubOeffnen(80, 5)
 
                 GPIO.setmode(GPIO.BCM)
                 GPIO.setup(7, GPIO.IN)  # Stopp
