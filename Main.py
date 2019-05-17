@@ -2,7 +2,7 @@ import time
 import TSL2561
 import Motoren
 import RPi.GPIO as GPIO
-import threading
+
 
 print("Willkommen")
 print ("-----------" * 6)
