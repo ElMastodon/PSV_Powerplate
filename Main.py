@@ -13,19 +13,19 @@ while bool == True:
 
     Motoren.secStandard()
 
-    print("Sie können folgende Sachen machen:")
-    print("Drücken Sie 0 + Entertaste um den ganzen Prozess durchzuführen!")
-    print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
-    print("Drücken Sie 2 + Entertaste um die Sortierplattform runterzulassen")
-    print("Drücken Sie 3 + Entertaste um die Schublade zu öffnen")
-    print("Drücken Sie 4 + Entertaste um die Schublade zu schliessen")
-    print("Drücken Sie 5 + Entertaste um die Sortierplattform zu vibrieren")
-    print("Drücken Sie 6 + Entertaste um die Anordnungsplattform zu vibrieren")
-    print("Drücken Sie 7 + Entertaste um die Prüflingsform zu prüfen")
-    print("Drücken Sie 8 + Entertaste umd das Programm zu beenden")
+    print("Sie koennen folgende Sachen machen:")
+    print("Druecken Sie 0 + Entertaste um den ganzen Prozess durchzufuehren!")
+    print("Druecken Sie 1 + Entertaste um die Sortierplattform anzuheben.")
+    print("Druecken Sie 2 + Entertaste um die Sortierplattform runterzulassen")
+    print("Druecken Sie 3 + Entertaste um die Schublade zu oeffnen")
+    print("Druecken Sie 4 + Entertaste um die Schublade zu schliessen")
+    print("Druecken Sie 5 + Entertaste um die Sortierplattform zu vibrieren")
+    print("Druecken Sie 6 + Entertaste um die Anordnungsplattform zu vibrieren")
+    print("Druecken Sie 7 + Entertaste um die Prueflingsform zu pruefen")
+    print("Druecken Sie 8 + Entertaste umd das Programm zu beenden")
     print ("-----------" * 6)
 
-    print("Drücken Sie 99 + Entertaste um das System über die Knöpfe zu steuern")
+    print("Druecken Sie 99 + Entertaste um das System ueber die Knoepfe zu steuern")
     print("-----------" * 6)
 
 
@@ -81,7 +81,7 @@ while bool == True:
                     GPIO.setup(7, GPIO.IN)  # Stopp
                     GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
                     break
-                print("Schublade wird geöffnet")
+                print("Schublade wird geoeffnet")
                 print("-----------" * 6)
                 time.sleep(2)
                 Motoren.anhebenUnten(40, 5)

@@ -78,7 +78,7 @@ def ganzesSystemDurchlaufen():
             secAnhebenSort = 0
             secSleep = 0
 
-        print("Schublade wird geöffnet")
+        print("Schublade wird geoeffnet")
         print("-----------" * 6)
         time.sleep(secSleep)
         anhebenUnten(40, secAnheben)
@@ -118,7 +118,7 @@ def ganzesSystemDurchlaufen():
             secAnhebenSort = 0
             secSleep = 0
 
-        print("Vibration der Anordnungsplattform wird durchgeführt")
+        print("Vibration der Anordnungsplattform wird durchgefuehrt")
         print("-----------" * 6)
         time.sleep(secSleep)
         vibAnord(90, secAnord)
@@ -223,8 +223,8 @@ def anhebenOben(dc, sec):
 def anhebenUnten(dc,sec):
     try:
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(17, GPIO.OUT)    #Signal zu H-Brücke 1
-        GPIO.setup(27, GPIO.OUT)    #Signal zu H-Brücke 2
+        GPIO.setup(17, GPIO.OUT)    #Signal zu H-Bruecke 1
+        GPIO.setup(27, GPIO.OUT)    #Signal zu H-Bruecke 2
         GPIO.setup(18, GPIO.OUT)  # PWM
         GPIO.setup(14, GPIO.IN)  # Endschalter Unten
         GPIO.setup(7, GPIO.IN)  # Stopp
