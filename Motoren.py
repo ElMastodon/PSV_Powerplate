@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import _thread
+
 
 def secStandard():
     secSchub = 3
