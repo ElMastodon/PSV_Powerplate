@@ -36,13 +36,13 @@ def ganzesSystemDurchlaufen():
         print("-----------" * 6)
         time.sleep(1)
         vibSort(80,secSort)
-        if GPIO.input(7):
+        if GPIO.input(7) == 1:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(7, GPIO.IN)  # Stopp
             secSet0()
         time.sleep(0.5)
         konstantesAnheben(90, 70, secAnhebenSort)
-        if GPIO.input(7):
+        if GPIO.input(7) == 1:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(7, GPIO.IN)  # Stopp
             secSet0()
@@ -51,20 +51,20 @@ def ganzesSystemDurchlaufen():
         print("-----------" * 6)
         time.sleep(2)
         anhebenUnten(40, secAnheben)
-        if GPIO.input(7):
+        if GPIO.input(7) == 1:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(7, GPIO.IN)  # Stopp
             secSet0()
 
         schubOeffnen(85, secSchub)
-        if GPIO.input(7):
+        if GPIO.input(7) == 1:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(7, GPIO.IN)  # Stopp
             secSet0()
 
         time.sleep(0.5)
         konstantesAnheben(90, 90, secAnhebenSort)
-        if GPIO.input(7):
+        if GPIO.input(7) == 1:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(7, GPIO.IN)  # Stopp
             secSet0()
