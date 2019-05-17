@@ -11,6 +11,8 @@ bool = True
 
 while bool == True:
 
+    Motoren.secStandard()
+
     print("Sie können folgende Sachen machen:")
     print("Drücken Sie 0 + Entertaste um den ganzen Prozess durchzuführen!")
     print("Drücken Sie 1 + Entertaste um die Sortierplattform anzuheben.")

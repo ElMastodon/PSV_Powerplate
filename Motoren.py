@@ -2,43 +2,89 @@ import RPi.GPIO as GPIO
 import time
 import _thread
 
-def secReset():
+def secStandard():
     secSchub = 3
     secAnord = 30
     secSort = 10
+    secAnheben = 3
+    secAnhebenSort = 10
 
+    return secSchub,secAnord,secSort,secAnheben,secAnhebenSort
+
+def secSet0():
+    secSchub = 0
+    secAnord = 0
+    secSort = 0
+    secAnheben = 0
+    secAnhebenSort = 0
+
+    return secSchub, secAnord, secSort, secAnheben, secAnhebenSort
 
 
 # Pin 12 (GPIO17) um Plattform anzuheben
 def ganzesSystemDurchlaufen():
     try:
+        secSchub = 3
+        secAnord = 30
+        secSort = 10
+        secAnheben = 3
+        secAnhebenSort = 10
+
+
         initAnfangszustand()
         print("INIT ERLEDIGT!")
         print("-----------" * 6)
         time.sleep(1)
-        vibSort(80,10)
-
+        vibSort(80,secSort)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
         time.sleep(0.5)
-        konstantesAnheben(90, 70, 10)
+        konstantesAnheben(90, 70, secAnhebenSort)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
 
         print("Schublade wird geöffnet")
         print("-----------" * 6)
         time.sleep(2)
-        anhebenUnten(40, 5)
+        anhebenUnten(40, secAnheben)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
 
-        schubOeffnen(85, 5)
+        schubOeffnen(85, secSchub)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
 
         time.sleep(0.5)
-        konstantesAnheben(90, 90, 10)
+        konstantesAnheben(90, 90, secAnhebenSort)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
 
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
         time.sleep(2)
-        vibAnord(90, 30)
+        vibAnord(90, secAnord)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
 
         print("-----------" * 6)
         time.sleep(0)
-        anhebenUnten(40, 1)
+        anhebenUnten(40, secAnheben)
+        if GPIO.input(7):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(7, GPIO.IN)  # Stopp
+            secSet0()
 
     finally:
         GPIO.cleanup()
