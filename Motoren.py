@@ -34,6 +34,8 @@ def ganzesSystemDurchlaufen():
         secAnheben = 3
         secAnhebenSort = 10
 
+        secSleep = 1
+
         stop = True
 
 
@@ -45,12 +47,13 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
         initAnfangszustand()
 
         print("INIT ERLEDIGT!")
         print("-----------" * 6)
-        time.sleep(1)
+        time.sleep(secSleep)
         vibSort(80,secSort)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
@@ -60,8 +63,9 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
-        time.sleep(0.5)
+        time.sleep(secSleep)
         konstantesAnheben(90, 70, secAnhebenSort)
 
         GPIO.setmode(GPIO.BCM)
@@ -72,10 +76,11 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
         print("Schublade wird geöffnet")
         print("-----------" * 6)
-        time.sleep(2)
+        time.sleep(secSleep)
         anhebenUnten(40, secAnheben)
 
         GPIO.setmode(GPIO.BCM)
@@ -86,6 +91,7 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
         schubOeffnen(85, secSchub)
 
@@ -97,8 +103,9 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
-        time.sleep(0.5)
+        time.sleep(secSleep)
         konstantesAnheben(90, 90, secAnhebenSort)
 
         GPIO.setmode(GPIO.BCM)
@@ -109,10 +116,11 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
         print("Vibration der Anordnungsplattform wird durchgeführt")
         print("-----------" * 6)
-        time.sleep(2)
+        time.sleep(secSleep)
         vibAnord(90, secAnord)
 
         GPIO.setmode(GPIO.BCM)
@@ -123,9 +131,10 @@ def ganzesSystemDurchlaufen():
             secSort = 0
             secAnheben = 0
             secAnhebenSort = 0
+            secSleep = 0
 
         print("-----------" * 6)
-        time.sleep(0)
+        time.sleep(secSleep)
         anhebenUnten(40, secAnheben)
 
     finally:
