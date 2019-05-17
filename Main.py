@@ -146,6 +146,7 @@ while bool == True:
 
                     GPIO.setmode(GPIO.BCM)
                     GPIO.setup(7, GPIO.IN)  # Stopp
+                    Motoren.schubOeffnen(80, 3)
 
                     if GPIO.input(7):
                         GPIO.setmode(GPIO.BCM)
@@ -156,7 +157,7 @@ while bool == True:
                         GPIO.setup(23, GPIO.IN)  # Endschalter Schublade offen
                         break
 
-                     Motoren.schubOeffnen(80,3)
+
 
                 Motoren.vibAnord(90, 30)
 
