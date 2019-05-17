@@ -270,6 +270,11 @@ def schubOeffnen(dc, sec):
 
         GPIO.output(22, GPIO.LOW)
 
+        GPIO.output(10, GPIO.LOW)
+
+        p = GPIO.PWM(13, 2000)
+        p.start(dc)
+
         secStart = sec
 
         time.sleep(1)
