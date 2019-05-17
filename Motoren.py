@@ -34,10 +34,12 @@ def ganzesSystemDurchlaufen():
         secAnheben = 3
         secAnhebenSort = 10
 
+        stop = True
+
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -52,7 +54,7 @@ def ganzesSystemDurchlaufen():
         vibSort(80,secSort)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -64,7 +66,7 @@ def ganzesSystemDurchlaufen():
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -78,7 +80,7 @@ def ganzesSystemDurchlaufen():
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -89,7 +91,7 @@ def ganzesSystemDurchlaufen():
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -101,7 +103,7 @@ def ganzesSystemDurchlaufen():
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -115,7 +117,7 @@ def ganzesSystemDurchlaufen():
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
-        if GPIO.input(7) == 1:
+        if GPIO.input(7) == 1 or (stop == False):
             secSchub = 0
             secAnord = 0
             secSort = 0
@@ -163,6 +165,8 @@ def konstantesAnheben(dcAn,dcVib , sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stop = False
+                return stop
 
         GPIO.output(17, GPIO.LOW)
         p1.stop
@@ -193,6 +197,8 @@ def anhebenOben(dc, sec):
             sec -= 0.01
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stop = False
+                return stop
 
         GPIO.output(17, GPIO.LOW)
 
@@ -231,6 +237,8 @@ def anhebenUnten(dc,sec):
             sec -=0.04
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stop = False
+                return stop
 
 
         p.stop()
@@ -274,6 +282,8 @@ def schubOeffnen(dc, sec):
 
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stop = False
+                return stop
 
         p.stop()
         GPIO.output(10, GPIO.LOW)
@@ -317,6 +327,8 @@ def schubSchliessen(dc, sec):
 
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stop = False
+                return stop
 
 
         p.stop()
@@ -347,6 +359,8 @@ def vibSort(dc, sec):
             time.sleep(0.01)
             if (GPIO.input(7)) == 1:
                 sec = 0
+                stop = False
+                return stop
 
         p.stop()
         GPIO.output(11, GPIO.LOW)
@@ -378,6 +392,8 @@ def vibAnord(dc, sec):
             if (GPIO.input(7)) == 1:
                 sec = 0
                 time.sleep(0.5)
+                stop = False
+                return stop
 
 
         p.stop()
