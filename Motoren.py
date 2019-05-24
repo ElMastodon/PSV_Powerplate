@@ -30,7 +30,7 @@ def ganzesSystemDurchlaufen():
 
         secSchub = 3
         secAnord = 30
-        secSort = 10
+        secSort = 5
         secAnheben = 3
         secAnhebenSort = 10
 
@@ -93,7 +93,7 @@ def ganzesSystemDurchlaufen():
             secAnhebenSort = 0
             secSleep = 0
 
-        schubOeffnen(80, secSchub)
+        schubOeffnen(90, secSchub)
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(7, GPIO.IN)  # Stopp
@@ -142,7 +142,7 @@ def ganzesSystemDurchlaufen():
 
 def initAnfangszustand():
     anhebenUnten(40,1)
-    schubSchliessen(80,4)
+    schubSchliessen(90,4)
 
 def konstantesAnheben(dcAn,dcVib , sec):
     try:
